@@ -1,4 +1,5 @@
 require "bundler/setup"
+require 'webmock/rspec'
 require "agris"
 
 RSpec.configure do |config|
@@ -9,3 +10,5 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+Dir[Agris.root + '/spec/support/**/*.rb'].each { |f| require f }

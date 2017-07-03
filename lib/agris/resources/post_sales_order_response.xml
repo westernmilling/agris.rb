@@ -1,0 +1,21 @@
+<results>
+  <system message="82320" package="SYS" messageversion="10.1.1" lastrequestdatetime="" filename="" systemversion="10.1.1" systemid="M7" componentserver="WIN81DEVBERG1" dbservername="WIN81DEVBERG1" dbname="A00305152015202910" datapath="c:\AGRIS_10\DATASETS\003" datasetnumber="003" datasetdescription="Farm Service Grain" datasetid="YRW" datasetguid="BD11BF48-DEBC-4B9F-ABAB-600320F32E2E" licenseguid="" count="1" startdatetime="2015-11-13T16:19:36" enddatetime="2015-11-13T16:19:37" elapsemillisecond="1406" />
+  <import importdescription="" altoutputfile="" ippackagelist="INV" ipmiscinfo="" spoolfilename="c:\AGRIS\DATASETS\003\Reports\5KDQ193742.002" />
+  <result type="INVP0" document="" status="Rejected">
+    <rejects>
+      <reject code="C" reason="ORDER LOCATION CODE NOT FOUND" />
+      <reject code="F" reason="INVENTORY ITEM LOCATION CODE NOT FOUND" />
+      <reject code="E" reason="INVENTORY ITEM NUMBER NOT FOUND OR INACTIVE" />
+      <reject code="W" reason="QUANTITY UNIT OF MEASURE NOT FOUND" />
+      <reject code="X" reason="PRICE/COST UNIT OF MEASURE NOT FOUND" />
+      <reject code="S" reason="SHIPPER NAME ID NOT FOUND OR INACTIVE" />
+      <reject code="T" reason="AGENT/BROKER NAME ID NOT FOUND OR INACTIVE" />
+      <reject code="=" reason="INVALID ORDER STATUS" />
+      <reject code="m" reason="PROMOTION TYPE NOT FOUND" />
+    </rejects>
+  </result>
+  <result type="INVP0" document="S400123456" status="Processed">
+    <rejects>
+    </rejects>
+  </result>
+</results>
