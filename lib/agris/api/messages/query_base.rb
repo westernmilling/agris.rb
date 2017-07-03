@@ -7,7 +7,7 @@ module Agris
 
         def input_base_hash
           {
-            :@requester => 'Otis (Agris Client)',
+            :@requester => 'Agris Client',
             :@usefile => false
           }
         end
