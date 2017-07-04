@@ -12,7 +12,12 @@ module Agris
   class UnknownError < StandardError; end
 
   class << self
-    attr_accessor :credentials, :context, :logger, :proxy_url, :request_type
+    attr_accessor :credentials,
+                  :context,
+                  :logger,
+                  :proxy_url,
+                  :request_type,
+                  :user_agent
     # ```ruby
     # Agris.configure do |config|
     #   config.credentials = Agris::Credentials::Anonymous.new
@@ -26,6 +31,7 @@ module Agris
     #   )
     #   config.request_type = Agris::SavonRequest
     #   config.logger = Logger.new(STDOUT)
+    #   config.user_agent = 'Otis'
     # end
     # ```
     # elsewhere
@@ -50,5 +56,6 @@ module Agris
   autoload :HTTPartyRequest, 'agris/httparty_request'
   autoload :ProcessMessageResponse, 'agris/process_message_response'
   autoload :SavonRequest, 'agris/savon_request'
+  autoload :UserAgent, 'agris/user_agent'
   autoload :XmlModel, 'agris/xml_model'
 end
