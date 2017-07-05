@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'agris/user_agent'
 require 'savon'
 
 module Agris
