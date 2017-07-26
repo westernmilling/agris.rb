@@ -10,7 +10,7 @@ module Agris
     end
 
     def error?
-      !ag_error_str_p.blank?
+      ag_error_str_p.present?
     end
 
     def error_info

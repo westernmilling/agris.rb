@@ -3,5 +3,5 @@
 require 'agris/version'
 
 module Agris
-  USER_AGENT = Agris.user_agent.to_s + " (Agris.rb #{VERSION})".freeze
+  USER_AGENT = Agris.user_agent.to_s + " (Agris.rb #{VERSION})"
 end

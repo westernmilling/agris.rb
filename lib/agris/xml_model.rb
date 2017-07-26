@@ -24,7 +24,7 @@ module Agris
       end
 
       def to_xml_hash
-        ignore_attributes = xml_ignore_attributes + [:hash]
+        ignore_attributes = (xml_ignore_attributes + [:hash])
         attributes
           .slice(*(attributes.keys - ignore_attributes))
           .each_with_object({}) do |(name, value), new_hash|
