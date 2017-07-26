@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/westernmilling/agris.rb/badges/gpa.svg)](https://codeclimate.com/github/westernmilling/agris.rb)
+[![Test Coverage](https://codeclimate.com/github/westernmilling/agris.rb/badges/coverage.svg)](https://codeclimate.com/github/westernmilling/agris.rb/coverage)
+
 # Agris
 
 Agris Web Services client library.

@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 require 'bundler/setup'
 require 'webmock/rspec'
+require 'simplecov'
 require 'agris'
+
+SimpleCov.start
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
