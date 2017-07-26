@@ -7,12 +7,11 @@ describe Agris::XmlModel do
 
     ATTRIBUTE_NAMES = %w(
       included_attribute
-    )
+    ).freeze
 
     attr_accessor(*ATTRIBUTE_NAMES)
 
-    def excluded_attribute
-    end
+    def excluded_attribute; end
 
     def xml_ignore_attributes
       [:excluded_attribute]
@@ -29,7 +28,7 @@ describe Agris::XmlModel do
 
     subject { instance.to_xml_hash }
 
-    it 'should not return xml_ignored_attributes' do
+    it 'should not include xml_ignored_attributes' do
       expect(subject).to include(:@includedattribute)
       expect(subject).to_not include(:@excludedattribute)
     end
