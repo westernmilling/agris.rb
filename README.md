@@ -23,7 +23,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Agris.configure do |config|
+  config.credentials = Agris::Credentials::Anonymous.new
+  config.context = Agris::Context.new(
+    'http://localhost:3000',
+    '001',
+    '\\host\apps\Agris\datasets',
+    'AgrisDB',
+    'bob',
+    'fred'
+  )
+  config.request_type = Agris::SavonRequest
+  config.logger = Logger.new(STDOUT)
+  config.user_agent = 'Otis'
+end
+```
+
+elsewhere
+
+```ruby
+client = Agris::Client.new
+```
+
+Enjoy!
 
 ## Development
 
