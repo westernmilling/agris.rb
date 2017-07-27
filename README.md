@@ -1,8 +1,9 @@
+[![Code Climate](https://codeclimate.com/github/westernmilling/agris.rb/badges/gpa.svg)](https://codeclimate.com/github/westernmilling/agris.rb)
+[![Test Coverage](https://codeclimate.com/github/westernmilling/agris.rb/badges/coverage.svg)](https://codeclimate.com/github/westernmilling/agris.rb/coverage)
+
 # Agris
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/agris`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Agris Web Services client library.
 
 ## Installation
 
@@ -22,7 +23,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Agris.configure do |config|
+  config.credentials = Agris::Credentials::Anonymous.new
+  config.context = Agris::Context.new(
+    'http://localhost:3000',
+    '001',
+    '\\host\apps\Agris\datasets',
+    'AgrisDB',
+    'bob',
+    'fred'
+  )
+  config.request_type = Agris::SavonRequest
+  config.logger = Logger.new(STDOUT)
+  config.user_agent = 'Otis'
+end
+```
+
+elsewhere
+
+```ruby
+client = Agris::Client.new
+```
+
+Enjoy!
 
 ## Development
 
@@ -32,5 +56,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/John Gray/agris.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/westernmilling/agris.

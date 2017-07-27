@@ -56,7 +56,7 @@ describe Agris::Client, :agris_api_mock do
     let(:fixture_file) { 'process_message_user_id_error.xml' }
 
     it 'should fail' do
-      expect { client.orders_changed_since(Time.now) }
+      expect { client.orders_changed_since(Time.current) }
         .to raise_error(Agris::ApiError, 'Invalid User ID Code')
     end
   end
@@ -65,7 +65,7 @@ describe Agris::Client, :agris_api_mock do
     let(:fixture_file) { 'process_message_document_tracking_error.xml' }
 
     it 'should fail' do
-      expect { client.orders_changed_since(Time.now) }
+      expect { client.orders_changed_since(Time.current) }
         .to raise_error(Agris::ApiError, 'Not tracking document type - SORDR')
     end
   end
@@ -75,7 +75,7 @@ describe Agris::Client, :agris_api_mock do
     let(:fixture_file) { 'process_message_exception.xml' }
 
     it 'should fail' do
-      expect { client.orders_changed_since(Time.now) }
+      expect { client.orders_changed_since(Time.current) }
         .to raise_error(Agris::MessageError)
     end
   end
@@ -85,7 +85,7 @@ describe Agris::Client, :agris_api_mock do
     let(:fixture_file) { 'process_message_unexpected_exception.xml' }
 
     it 'should fail' do
-      expect { client.orders_changed_since(Time.now) }
+      expect { client.orders_changed_since(Time.current) }
         .to raise_error(Agris::SystemError)
     end
   end
