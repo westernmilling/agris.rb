@@ -10,7 +10,7 @@ module Agris
     end
 
     def error?
-      ag_error_str_p.present?
+      !ag_error_str_p.to_s.strip.empty?
     end
 
     def error_info
@@ -18,7 +18,7 @@ module Agris
     end
 
     def error_hash
-      @error_hash ||= Hash.from_xml(ag_error_str_p)
+      @error_hash ||= error? ? Hash.from_xml(ag_error_str_p) : {}
     end
 
     def output_hash

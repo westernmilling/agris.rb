@@ -69,7 +69,6 @@ module Agris
           import_message.message_number,
           import_message.to_xml
         )
-
         PostResult.new(response)
       end
     end

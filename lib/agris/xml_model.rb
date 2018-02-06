@@ -25,8 +25,9 @@ module Agris
 
       def to_xml_hash
         ignore_attributes = (xml_ignore_attributes + [:hash]).map(&:to_s)
+        match_attributes = attributes.keys - ignore_attributes
         attributes
-          .slice(*(attributes.keys - ignore_attributes))
+          .select { |key, _value| match_attributes.include?(key) }
           .each_with_object({}) do |(name, value), new_hash|
           new_hash["@#{name.delete('_')}".to_sym] = value
           new_hash
