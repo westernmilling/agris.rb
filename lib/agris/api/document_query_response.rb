@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable Rails/TimeZone
 module Agris
   module Api
     class DocumentQueryResponse
