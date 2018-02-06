@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 $LOAD_PATH.unshift File.dirname(__FILE__)
 
-# require 'active_support/core_ext/hash/conversions'
-# require 'active_support/core_ext/hash/slice'
 require 'hash'
 require 'savon'
 
