@@ -19,7 +19,7 @@ class Hash
       result_hash = {}
       if node.attributes != {}
         attributes = {}
-        node.attributes.keys.each do |key|
+        node.attributes.each_key do |key|
           attributes[
             key_value(node.attributes[key])
           ] = node.attributes[key].value
