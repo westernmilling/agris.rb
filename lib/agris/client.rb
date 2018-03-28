@@ -3,6 +3,7 @@ module Agris
   class Client
     include Api::AccountsPayables::Vouchers
     include Api::AccountsReceivables::Invoices
+    include Api::Grain::PurchaseContracts
     include Api::Grain::Tickets
     include Api::Inventory::DeliveryTickets
     include Api::Inventory::Orders
