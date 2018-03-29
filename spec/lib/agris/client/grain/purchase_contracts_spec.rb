@@ -99,7 +99,7 @@ describe Agris::Client, :agris_api_mock do
     let(:response_body) do
       File.read(File.join(%W(./ spec fixtures agris #{fixture_file})))
     end
-    let(:datetime) { DateTime.parse('2018-01-03T14:25:00)') }
+    let(:datetime) { Time.parse('2018-01-03T14:25:00)') }
 
     context 'when a contract is found' do
       let(:fixture_file) do
