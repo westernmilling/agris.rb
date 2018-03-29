@@ -3,7 +3,6 @@ module Agris
   module Api
     module Messages
       class QueryChangedPurchaseContracts < QueryBase
-        # Add detail support like invoices?
         def initialize(time, detail)
           @time = time
           @detail = detail
