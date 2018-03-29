@@ -85,4 +85,46 @@ describe Agris::Client, :agris_api_mock do
       end
     end
   end
+
+  describe '#purchase_contracts_changed_since' do
+    include_context 'test agris client'
+
+    before do
+      savon
+        .expects(:process_message)
+        .with(message: :any)
+        .returns(response_body)
+    end
+
+    let(:response_body) do
+      File.read(File.join(%W(./ spec fixtures agris #{fixture_file})))
+    end
+    let(:datetime) { DateTime.parse('2018-01-03T14:25:00)') }
+
+    context 'when a contract is found' do
+      let(:fixture_file) do
+        'grain/purchase_contract_two_results_no_detail.xml'
+      end
+      let(:contract_number_1) { '0000001' }
+      let(:contract_number_2) { '0000002' }
+
+      it 'returns the contract' do
+        result = client.purchase_contracts_changed_since(datetime)
+
+        expect(result.documents.length).to eq(2)
+        expect(result.documents[0].contract_number).to eq(contract_number_1)
+        expect(result.documents[1].contract_number).to eq(contract_number_2)
+      end
+    end
+
+    context 'when a contract is not found' do
+      let(:fixture_file) { 'grain/purchase_contract_not_found_result.xml' }
+
+      it 'returns no contract' do
+        result = client.purchase_contracts_changed_since(datetime)
+
+        expect(result.documents.length).to eq(0)
+      end
+    end
+  end
 end

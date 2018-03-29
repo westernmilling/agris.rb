@@ -10,6 +10,8 @@ module Agris
                'agris/api/messages/query_base'
       autoload :QueryChangedDeliveryTickets,
                'agris/api/messages/query_changed_delivery_tickets'
+      autoload :QueryChangedPurchaseContracts,
+               'agris/api/messages/query_changed_purchase_contracts'
       autoload :QueryChangedInvoices,
                'agris/api/messages/query_changed_invoices'
       autoload :QueryChangedOrders,
