@@ -6,6 +6,7 @@ module Agris
         include XmlModel
 
         ATTRIBUTE_NAMES = %w(
+          apply_no
           apply_type
           expected_apply_type
           apply_name_id
