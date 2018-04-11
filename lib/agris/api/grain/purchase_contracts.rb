@@ -23,6 +23,15 @@ module Agris
             Agris::Api::Grain::Contract
           )
         end
+
+        def grain_setup
+          grain = extract_documents(
+            Messages::QueryGrainSetup.new,
+            Agris::Api::Grain::GrainSetup
+          )
+
+          byebug
+        end
       end
     end
   end

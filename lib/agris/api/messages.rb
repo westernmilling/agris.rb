@@ -18,6 +18,8 @@ module Agris
                'agris/api/messages/query_changed_orders'
       autoload :QueryPurchaseContractDocuments,
                'agris/api/messages/query_purchase_contract_documents'
+      autoload :QueryGrainSetup,
+               'agris/api/messages/query_grain_setup'
       autoload :QueryDeliveryTicketDocuments,
                'agris/api/messages/query_delivery_ticket_documents'
       autoload :QueryInvoiceDocuments,

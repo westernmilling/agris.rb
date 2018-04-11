@@ -11,6 +11,7 @@ module Agris
                'agris/api/grain/specific_purchase_contract_extract'
       autoload :Tickets,
                'agris/api/grain/tickets'
+      autoload :GrainSetup, 'agris/api/grain/grain_setup'
     end
   end
 end
