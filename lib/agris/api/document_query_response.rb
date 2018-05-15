@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'pry-byebug'
 module Agris
   module Api
     class DocumentQueryResponse
