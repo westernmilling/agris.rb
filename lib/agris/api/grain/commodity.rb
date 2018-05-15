@@ -5,6 +5,10 @@ module Agris
       class Commodity
         include XmlModel
 
+        def self.pluralized_name
+          'commodities'
+        end
+
         ATTRIBUTE_NAMES = %w(
           unique_id
           integration_guid

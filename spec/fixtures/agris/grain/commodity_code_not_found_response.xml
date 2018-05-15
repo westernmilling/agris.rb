@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <ProcessMessageResponse xmlns="http://www.deere.com/agriservices/">
+      <ProcessMessageResult>true</ProcessMessageResult>
+      <AgOutput_obj_p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;commodities&gt;&lt;system message="81300" package="GRN" messageversion="18.2.0" lastrequestdatetime="" filename="" systemversion="18.2.0" systemid="G7" componentserver="APP510-STG-GSH"
+        dbservername="stg" dbname="AGRIS" datapath="\\stg\apps\agris\datasets\001" datasetnumber="001" datasetdescription="Dataset 1" datasetid="BWO" datasetguid="441BC291-951E-4F23-84B8-4770993E6F11"
+        licenseguid="12312123-5801-4698-AD4F-62132132FAD" count="0" startdatetime="2018-05-15T08:36:09" enddatetime="2018-05-15T08:36:09" elapsemillisecond="219" /&gt;&lt;/commodities&gt;</AgOutput_obj_p>
+    </ProcessMessageResponse>
+  </soap:Body>
+</soap:Envelope>
