@@ -2,9 +2,9 @@
 module Agris
   module Api
     module Messages
-      class QueryPurchaseContractDocuments < DocumentQueryBase
+      class QueryCommodityCodeDocuments < DocumentQueryBase
         def message_number
-          80_150
+          81_300
         end
 
         protected
@@ -12,7 +12,7 @@ module Agris
         def xml_hash
           xml_base_hash
             .merge(
-              contract: @document_references.map(&:to_xml_hash)
+              commodity: @document_references.map(&:to_xml_hash)
             )
         end
       end

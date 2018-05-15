@@ -2,20 +2,12 @@
 module Agris
   module Api
     module Messages
-      class QueryOrderDocuments < QueryBase
-        def initialize(document_references)
-          @document_references = document_references
-        end
-
+      class QueryOrderDocuments < DocumentQueryBase
         def message_number
           80_900
         end
 
         protected
-
-        def input_hash
-          input_base_hash
-        end
 
         def xml_hash
           xml_base_hash

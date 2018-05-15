@@ -58,6 +58,10 @@ module Agris
 
         klass.new(translated_hash)
       end
+
+      def pluralized_name
+        "#{name.split('::').last.downcase}s"
+      end
     end
   end
 end

@@ -10,7 +10,9 @@ module Agris
 
       def last_request_date_time
         DateTime.parse(
-          @output_hash["#{resource_name}s"]['system']['lastrequestdatetime']
+          @output_hash[pluralized_resource_name] \
+                      ['system'] \
+                      ['lastrequestdatetime']
         )
       end
 
@@ -35,6 +37,10 @@ module Agris
                            .downcase
       end
 
+      def pluralized_resource_name
+        resource_type.pluralized_name
+      end
+
       def resource_type
         @resource_type ||= Object.const_get(
           self
@@ -48,7 +54,7 @@ module Agris
 
       def resources
         # Wrap and flatten for single responses
-        [@output_hash["#{resource_name}s"][resource_name]]
+        [@output_hash[pluralized_resource_name][resource_name]]
           .compact
           .flatten
       end
