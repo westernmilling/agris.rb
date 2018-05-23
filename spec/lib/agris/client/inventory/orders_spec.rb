@@ -37,10 +37,10 @@ describe Agris::Client, :agris_api_mock do
       end
     end
 
-    context 'when a contract is not found' do
+    context 'when no orders are found' do
       let(:fixture_file) { 'inventory/order_not_found_result.xml' }
 
-      it 'returns no contract' do
+      it 'returns no order' do
         result = client.orders_changed_since(datetime)
 
         expect(result.documents.length).to eq(0)
