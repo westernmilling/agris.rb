@@ -28,9 +28,9 @@ module Agris
           )
         end
 
-        def orders_changed_since(datetime)
+        def orders_changed_since(datetime, detail = false)
           extract_documents(
-            Messages::QueryChangedOrders.new(datetime),
+            Messages::QueryChangedOrders.new(datetime, detail),
             Agris::Api::Order
           )
         end

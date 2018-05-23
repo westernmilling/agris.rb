@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <ProcessMessageResponse xmlns="http://www.deere.com/agriservices/">
+      <ProcessMessageResult>true</ProcessMessageResult>
+      <AgOutput_obj_p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;orders&gt;&lt;system message="80900" package="INV" messageversion="18.2.0" lastrequestdatetime="2018-05-23T14:54:25" filename="" systemversion="18.2.0" systemid="AA"
+        componentserver="SERVER" dbservername="server" dbname="AGRIS" datapath="\\server\apps\AGRIS\datasets\001" datasetnumber="001" datasetdescription="STAGING" datasetid="AAA"
+        datasetguid="AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA" licenseguid="AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA" count="2" startdatetime="2018-05-23T14:54:24" enddatetime="2018-05-23T14:54:28" elapsemillisecond="4171" /&gt;&lt;order
+        uniqueid="INV:SORDR:AAA:000001:1000000-00" integrationguid="" ordertype="S" orderlocation="AAA" ordernumber="000001" shiptofromid="1000000-00" delete="false" /&gt;&lt;order uniqueid="INV:SORDR:AAA:000002:1000000-01" integrationguid="" ordertype="S"
+        orderlocation="AAA" ordernumber="000002" shiptofromid="1000000-01" delete="false" /&gt;
+        &lt;/orders&gt;</AgOutput_obj_p><AgError_str_p/></ProcessMessageResponse>
+  </soap:Body>
+</soap:Envelope>
