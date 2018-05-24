@@ -18,9 +18,9 @@ module Agris
           )
         end
 
-        def delivery_tickets_changed_since(datetime)
+        def delivery_tickets_changed_since(datetime, detail = false)
           extract_documents(
-            Messages::QueryChangedDeliveryTickets.new(datetime),
+            Messages::QueryChangedDeliveryTickets.new(datetime, detail),
             DeliveryTicket
           )
         end

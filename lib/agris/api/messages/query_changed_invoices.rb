@@ -2,29 +2,12 @@
 module Agris
   module Api
     module Messages
-      class QueryChangedInvoices < QueryBase
-        def initialize(time, detail)
-          @time = time
-          @detail = detail
-        end
-
+      class QueryChangedInvoices < ChangedQueryBase
         def message_number
           80_500
         end
 
         protected
-
-        def input_hash
-          input_base_hash
-            .merge(
-              :@details => @detail,
-              locid: {
-                :@datetime => @time.strftime('%Y-%m-%dT%H:%M:%S'),
-                :@id => nil,
-                :@loccode => nil
-              }
-            )
-        end
 
         def xml_hash
           xml_base_hash

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <ProcessMessageResponse xmlns="http://www.deere.com/agriservices/">
+      <ProcessMessageResult>true</ProcessMessageResult>
+      <AgOutput_obj_p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;deliverytickets&gt;&lt;system message="80600" package="INV" messageversion="18.2.0" lastrequestdatetime="2018-05-23T18:38:21" filename="" systemversion="18.2.0" systemid="AA"
+        componentserver="SERVER" dbservername="server" dbname="AGRIS" datapath="\\server\apps\AGRIS\datasets\001" datasetnumber="001" datasetdescription="staging" datasetid="AAA"
+        datasetguid="AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA" licenseguid="AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA" count="2" startdatetime="2018-05-23T18:38:19" enddatetime="2018-05-23T18:38:21" elapsemillisecond="1906" /&gt;&lt;deliveryticket
+        uniqueid="INV:DTCKT:AAA:000001:1000000-01" ticketlocation="AAA" ticketnumber="000001" shiptoid="1000000-01" delete="false" integrationguid=""&gt;&lt;/deliveryticket&gt;&lt;deliveryticket uniqueid="INV:DTCKT:AAA:000002:1000000-01" ticketlocation="AAA"
+        ticketnumber="000002" shiptoid="1000000-01" delete="false" integrationguid=""&gt;&lt;/deliveryticket&gt;&lt;/deliverytickets&gt;</AgOutput_obj_p><AgError_str_p/></ProcessMessageResponse>
+  </soap:Body>
+</soap:Envelope>
