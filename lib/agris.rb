@@ -44,7 +44,7 @@ module Agris
     end
 
     def root
-      File.expand_path('../../', __FILE__)
+      File.expand_path('..', __dir__)
     end
   end
 

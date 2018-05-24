@@ -1,8 +1,14 @@
-inherit_from: .hound-rubocop.yml
+inherit_from:
+  - .hound-rubocop.yml
 
+Rails:
+  Enabled: false
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
   Exclude:
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - "node_modules/**/*"
     - bin/*
 Layout/DotPosition:
   Description: Checks the position of the dot in multi-line method calls.
@@ -38,3 +44,6 @@ Style/StringLiterals:
   SupportedStyles:
   - single_quotes
   - double_quotes
+Rails/DynamicFindBy:
+  Exclude:
+    - "spec/features/**/*"

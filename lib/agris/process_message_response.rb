@@ -14,7 +14,7 @@ module Agris
     end
 
     def error_info
-      @error ||= error? ? ErrorInfo.new(error_hash) : nil
+      @error_info ||= error? ? ErrorInfo.new(error_hash) : nil
     end
 
     def error_hash
