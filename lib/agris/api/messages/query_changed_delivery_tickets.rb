@@ -3,8 +3,9 @@ module Agris
   module Api
     module Messages
       class QueryChangedDeliveryTickets < QueryBase
-        def initialize(time)
+        def initialize(time, detail)
           @time = time
+          @detail = detail
         end
 
         def message_number
@@ -16,6 +17,7 @@ module Agris
         def input_hash
           input_base_hash
             .merge(
+              :@details => @detail,
               locid: {
                 :@datetime => @time.strftime('%Y-%m-%dT%H:%M:%S'),
                 :@id => nil,
