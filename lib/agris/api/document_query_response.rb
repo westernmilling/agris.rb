@@ -4,12 +4,12 @@ module Agris
     class DocumentQueryResponse
       def initialize(output_hash, resource_type = nil)
         @output_hash = output_hash
-        @objects = nil
+        @documents = nil
         @resource_type = resource_type if resource_type
       end
 
       def last_request_date_time
-        DateTime.parse(
+        Time.parse(
           @output_hash[pluralized_resource_name] \
                       ['system'] \
                       ['lastrequestdatetime']
@@ -17,7 +17,7 @@ module Agris
       end
 
       def documents
-        @objects ||= parse
+        @documents ||= parse
       end
 
       protected
@@ -61,4 +61,3 @@ module Agris
     end
   end
 end
-# rubocop:enable Rails/TimeZone

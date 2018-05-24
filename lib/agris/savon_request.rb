@@ -17,7 +17,7 @@ module Agris
         message: {
           AgContext_str_p: context,
           AgMessage_int_p: message_number,
-          AgInput_obj_p: input,
+          AgInput_obj_p: input
         }
       )
       message_response = parse_response(response)
@@ -56,17 +56,17 @@ module Agris
     def response_error(error_info)
       Object.const_get(
         format(
-          'Agris::%sError',
-          error_info.type.to_s.split('_').map(&:capitalize).join
+          'Agris::%<error_name>sError',
+          error_name: error_info.type.to_s.split('_').map(&:capitalize).join
         )
       ).new(error_info.payload)
     end
 
     def wsdl
       format(
-        '%s/%s',
-        @base_url,
-        'agris/AGRIS.Env.MessageRouter/AGRIS.Env.MessageRouter.asmx?WSDL'
+        '%<base_url>s/%<path>s',
+        base_url: @base_url,
+        path: 'agris/AGRIS.Env.MessageRouter/AGRIS.Env.MessageRouter.asmx?WSDL'
       )
     end
   end
