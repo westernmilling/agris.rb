@@ -2,6 +2,8 @@
 module Agris
   module Api
     module Messages
+      autoload :ChangedQueryBase,
+               'agris/api/messages/changed_query_base'
       autoload :DocumentQueryBase,
                'agris/api/messages/document_query_base'
       autoload :MessageBase,
