@@ -3,7 +3,7 @@ module Agris
   module Api
     module Grain
       module CommodityCodes
-        def commodity_code(location, code)
+        def commodity_code(location = '', code = '')
           extract = Agris::Api::Grain::SpecificCommodityCodeExtract
                     .new(location, code)
 
