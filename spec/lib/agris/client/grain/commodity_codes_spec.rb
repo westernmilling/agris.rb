@@ -25,11 +25,19 @@ describe Agris::Client, :agris_api_mock do
       let(:location) { 'ABC' }
       let(:code) { 'WD' }
 
-      it 'returns the contract' do
+      it 'returns the commodity_code' do
         result = client.commodity_code(location, code)
 
         expect(result.documents.length).to eq(1)
         expect(result.documents[0].code).to eq(code)
+      end
+    end
+
+    context 'when a commodity list is requested' do
+      let(:fixture_file) { 'grain/commodity_code_two_response.xml' }
+      it 'returns the commodity_codes' do
+        result = client.commodity_code
+        expect(result.documents.length).to eq(2)
       end
     end
 
