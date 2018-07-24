@@ -33,4 +33,20 @@ describe Agris::XmlModel do
       expect(subject).to_not include(:@excludedattribute)
     end
   end
+
+  describe '#id' do
+    subject { TestModel.new }
+
+    it 'should return an id' do
+      expect(subject.id).not_to be_empty
+    end
+  end
+
+  describe '#id' do
+    subject { TestModel }
+
+    it 'should return Class' do
+      expect(subject.xml_class).to eq(TestModel)
+    end
+  end
 end
