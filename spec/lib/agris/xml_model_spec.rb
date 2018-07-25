@@ -33,22 +33,4 @@ describe Agris::XmlModel do
       expect(subject).to_not include(:@excludedattribute)
     end
   end
-
-  describe '#from_json_hash' do
-    let(:fixture_file) { 'grain/purchase_contract_one_result.json' }
-    let(:response_body) do
-      str = File.read(File.join(%W(./ spec fixtures agris #{fixture_file})))
-      JSON.parse(str)
-    end
-
-    subject { TestModel.from_json_hash(response_body) }
-
-    it 'should not include xml_ignored_attributes' do
-      expect(subject.hash['contract_location']).to eq('AZI')
-      expect(subject.hash['contract_number']).to eq('S000510')
-      expect(subject.hash['commodity']).to eq('CK')
-      expect(subject.hash['contract_quantity']).to eq('50')
-      expect(subject.hash['contract_type']).to eq('S')
-    end
-  end
 end
