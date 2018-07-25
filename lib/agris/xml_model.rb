@@ -1,10 +1,6 @@
 # frozen_string_literal: true
-require 'globalid'
-
 module Agris
   module XmlModel
-    include GlobalID::Identification
-
     def self.included(base)
       base.send :include, InstanceMethods
       base.extend ClassMethods
@@ -12,10 +8,6 @@ module Agris
 
     module InstanceMethods
       attr_reader :hash
-
-      def id
-        @id = SecureRandom.uuid
-      end
 
       def attributes
         (instance_variables - [:@hash]).each_with_object({}) do |ivar, new_hash|
@@ -48,12 +40,6 @@ module Agris
     end
 
     module ClassMethods
-      def xml_class
-        Object.const_get(name)
-      end
-
-      def find(id) end
-
       def from_xml_hash(hash)
         klass = Object.const_get(name)
 
