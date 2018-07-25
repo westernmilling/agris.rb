@@ -85,7 +85,7 @@ module Agris
             if hash['schedules']
               contract.schedules.concat(
                 hash['schedules'].map do |schedule|
-                  Schedule.from_xml_hash(schedule)
+                  Schedule.from_json_hash(schedule)
                 end
               )
             end

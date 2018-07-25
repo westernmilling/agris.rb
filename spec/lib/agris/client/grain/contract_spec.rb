@@ -16,11 +16,14 @@ describe Agris::Api::Grain::Contract, :agris_api_mock do
     subject { Agris::Api::Grain::Contract.from_json_hash(response_body) }
 
     it 'should create contract' do
-      expect(subject.hash['contract_location']).to eq('AZI')
-      expect(subject.hash['contract_number']).to eq('S000510')
-      expect(subject.hash['commodity']).to eq('CK')
-      expect(subject.hash['contract_quantity']).to eq('50')
-      expect(subject.hash['contract_type']).to eq('S')
+      expect(subject.contract_location).to eq('AZI')
+      expect(subject.contract_number).to eq('S000510')
+      expect(subject.commodity).to eq('CK')
+      expect(subject.contract_quantity).to eq('50')
+      expect(subject.contract_type).to eq('S')
+      expect(subject.schedules[0].number).to eq('01')
+      expect(subject.schedules[0].price_status).to eq('P')
+      expect(subject.schedules[0].apply_status).to eq('F')
     end
   end
 end
