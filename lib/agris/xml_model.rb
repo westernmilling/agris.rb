@@ -40,9 +40,12 @@ module Agris
     end
 
     module ClassMethods
+      def from_json_hash(hash)
+        Object.const_get(name).new(hash)
+      end
+
       def from_xml_hash(hash)
         klass = Object.const_get(name)
-
         attribute_map =
           klass::ATTRIBUTE_NAMES
           .each_with_object({}) do |name, new_hash|
