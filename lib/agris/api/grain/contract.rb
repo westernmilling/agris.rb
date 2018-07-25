@@ -80,6 +80,18 @@ module Agris
           end
         end
 
+        def self.from_json_hash(hash)
+          super.tap do |contract|
+            if hash['schedules']
+              contract.schedules.concat(
+                hash['schedules'].map do |schedule|
+                  Schedule.from_xml_hash(schedule)
+                end
+              )
+            end
+          end
+        end
+
         def initialize(hash = {})
           super
 
