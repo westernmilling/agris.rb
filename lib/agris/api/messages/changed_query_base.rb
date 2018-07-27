@@ -15,7 +15,7 @@ module Agris
             .merge(
               :@details => @detail,
               locid: {
-                :@datetime => @time.strftime("%Y-%m-%dT%H:%M:%S"),
+                :@datetime => @time.strftime('%Y-%m-%dT%H:%M:%S'),
                 :@id => nil,
                 :@loccode => nil
               }

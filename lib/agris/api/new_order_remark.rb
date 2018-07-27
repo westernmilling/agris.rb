@@ -15,7 +15,7 @@ module Agris
       def initialize(hash = {})
         super
 
-        @record_type = "INVP3"
+        @record_type = 'INVP3'
       end
     end
   end

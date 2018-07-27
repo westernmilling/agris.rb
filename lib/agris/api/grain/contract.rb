@@ -68,9 +68,9 @@ module Agris
 
         def self.from_xml_hash(hash)
           super.tap do |document|
-            if hash["schedules"]
+            if hash['schedules']
               document.schedules.concat(
-                [hash["schedules"]["schedule"]]
+                [hash['schedules']['schedule']]
                   .flatten
                   .map do |schedule|
                     Schedule.from_xml_hash(schedule)
@@ -82,9 +82,9 @@ module Agris
 
         def self.from_json_hash(hash)
           super.tap do |contract|
-            if hash["schedules"]
+            if hash['schedules']
               contract.schedules.concat(
-                hash["schedules"].map do |schedule|
+                hash['schedules'].map do |schedule|
                   Schedule.from_json_hash(schedule)
                 end
               )

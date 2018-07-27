@@ -4,7 +4,7 @@ module Agris
     module Messages
       class MessageBase
         def message_number
-          fail "You must override the message number"
+          fail 'You must override the message number'
         end
 
         def to_xml
@@ -18,7 +18,7 @@ module Agris
         end
 
         def input_hash
-          fail "You must override the input_hash"
+          fail 'You must override the input_hash'
         end
 
         def message_hash
@@ -34,7 +34,7 @@ module Agris
         end
 
         def xml_hash
-          fail "You must override the input_hash"
+          fail 'You must override the input_hash'
         end
       end
     end

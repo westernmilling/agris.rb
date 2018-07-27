@@ -64,7 +64,7 @@ module Agris
       def initialize(hash = {})
         super
 
-        @record_type = "INVP0"
+        @record_type = 'INVP0'
       end
 
       def add_remark(remark)

@@ -6,7 +6,7 @@ module Agris
         include XmlModel
 
         def self.pluralized_name
-          "commodities"
+          'commodities'
         end
 
         ATTRIBUTE_NAMES = %w(

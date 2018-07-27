@@ -50,7 +50,7 @@ module Agris
         super
 
         @details = []
-        @record_type = "ACPV0"
+        @record_type = 'ACPV0'
       end
 
       def add_detail(voucher)
@@ -77,7 +77,7 @@ module Agris
         def initialize(hash = {})
           super
 
-          @record_type = "ACPV2"
+          @record_type = 'ACPV2'
         end
       end
 
@@ -103,9 +103,9 @@ module Agris
         def initialize(orders, hash = {})
           super(hash)
 
-          @detail_type = "I"
+          @detail_type = 'I'
           @orders = orders
-          @record_type = "ACPV1"
+          @record_type = 'ACPV1'
         end
       end
     end

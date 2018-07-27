@@ -31,18 +31,18 @@ module Agris
 
       def self.from_xml_hash(hash)
         super.tap do |order|
-          if hash["lineitems"]
+          if hash['lineitems']
             order.line_items.concat(
-              [hash["lineitems"]["lineitem"]]
+              [hash['lineitems']['lineitem']]
                 .flatten
                 .map do |lineitem|
                   OrderLine.from_xml_hash(lineitem)
                 end
             )
           end
-          if hash["trancodes"]
+          if hash['trancodes']
             order.tran_codes.concat(
-              [hash["trancodes"]["trancode"]]
+              [hash['trancodes']['trancode']]
               .flatten
               .map do |trancode|
                 Agris::Api::TranCode.from_xml_hash(trancode)

@@ -75,9 +75,9 @@ module Agris
 
         def self.from_xml_hash(hash)
           super.tap do |document|
-            if hash["lineitems"]
+            if hash['lineitems']
               document.line_items.concat(
-                [hash["lineitems"]["lineitem"]]
+                [hash['lineitems']['lineitem']]
                   .flatten
                   .map do |lineitem|
                     LineItem.from_xml_hash(lineitem)

@@ -11,8 +11,8 @@ module Agris
       def last_request_date_time
         Time.parse(
           @output_hash[pluralized_resource_name] \
-                      ["system"] \
-                      ["lastrequestdatetime"]
+                      ['system'] \
+                      ['lastrequestdatetime']
         )
       end
 
@@ -32,7 +32,7 @@ module Agris
       def resource_name
         @resource_name ||= resource_type
                            .name
-                           .split("::")
+                           .split('::')
                            .last
                            .downcase
       end
@@ -46,9 +46,9 @@ module Agris
           self
             .class
             .name
-            .split("::")
+            .split('::')
             .last
-            .chomp("ExtractResponse")
+            .chomp('ExtractResponse')
         )
       end
 

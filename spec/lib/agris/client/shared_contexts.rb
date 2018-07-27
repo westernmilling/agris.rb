@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-shared_context "test agris client" do
+shared_context 'test agris client' do
   let(:client) do
     options = {
       logger: Logger.new(STDOUT),
@@ -12,6 +12,6 @@ shared_context "test agris client" do
     )
   end
   let(:context) do
-    Agris::Context.new("http://test.local", "001", "userid", "password")
+    Agris::Context.new('http://test.local', '001', 'userid', 'password')
   end
 end

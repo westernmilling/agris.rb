@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 $LOAD_PATH.unshift File.dirname(__FILE__)
 
-require "hash"
-require "savon"
+require 'hash'
+require 'savon'
 
 module Agris
   class ApiError < StandardError; end
@@ -44,17 +44,17 @@ module Agris
     end
 
     def root
-      File.expand_path("..", __dir__)
+      File.expand_path('..', __dir__)
     end
   end
 
-  autoload :Api, "agris/api"
-  autoload :Client, "agris/client"
-  autoload :Context, "agris/context"
-  autoload :Credentials, "agris/credentials"
-  autoload :HTTPartyRequest, "agris/httparty_request"
-  autoload :ProcessMessageResponse, "agris/process_message_response"
-  autoload :SavonRequest, "agris/savon_request"
-  autoload :UserAgent, "agris/user_agent"
-  autoload :XmlModel, "agris/xml_model"
+  autoload :Api, 'agris/api'
+  autoload :Client, 'agris/client'
+  autoload :Context, 'agris/context'
+  autoload :Credentials, 'agris/credentials'
+  autoload :HTTPartyRequest, 'agris/httparty_request'
+  autoload :ProcessMessageResponse, 'agris/process_message_response'
+  autoload :SavonRequest, 'agris/savon_request'
+  autoload :UserAgent, 'agris/user_agent'
+  autoload :XmlModel, 'agris/xml_model'
 end

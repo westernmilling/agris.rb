@@ -31,23 +31,23 @@ module Agris
       end
 
       def payload
-        if @hash.key?("xml")
-          @hash["xml"]["errors"]["errorinfo"]
-        elsif @hash["errorinfo"].is_a?(Hash)
-          @hash["errorinfo"]
-        elsif @hash["errorinfo"].is_a?(String)
-          @hash["errorinfo"].strip
+        if @hash.key?('xml')
+          @hash['xml']['errors']['errorinfo']
+        elsif @hash['errorinfo'].is_a?(Hash)
+          @hash['errorinfo']
+        elsif @hash['errorinfo'].is_a?(String)
+          @hash['errorinfo'].strip
         else
           @hash
         end
       end
 
       def type
-        @type ||= if @hash.key?("xml")
+        @type ||= if @hash.key?('xml')
                     :message
-                  elsif @hash["errorinfo"].is_a?(Hash)
+                  elsif @hash['errorinfo'].is_a?(Hash)
                     :system
-                  elsif @hash["errorinfo"].is_a?(String)
+                  elsif @hash['errorinfo'].is_a?(String)
                     :api
                   else
                     :unknown
