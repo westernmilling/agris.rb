@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-require 'agris/user_agent'
-require 'savon'
+require "agris/user_agent"
+require "savon"
 
 module Agris
   class SavonRequest
@@ -47,7 +47,7 @@ module Agris
         log: true,
         log_level: :debug
       }
-      options = options.merge(proxy: @proxy_url) unless @proxy_url.to_s == ''
+      options = options.merge(proxy: @proxy_url) unless @proxy_url.to_s == ""
       options = @credentials.apply(options)
 
       Savon.client(options)
@@ -56,17 +56,17 @@ module Agris
     def response_error(error_info)
       Object.const_get(
         format(
-          'Agris::%<error_name>sError',
-          error_name: error_info.type.to_s.split('_').map(&:capitalize).join
+          "Agris::%<error_name>sError",
+          error_name: error_info.type.to_s.split("_").map(&:capitalize).join
         )
       ).new(error_info.payload)
     end
 
     def wsdl
       format(
-        '%<base_url>s/%<path>s',
+        "%<base_url>s/%<path>s",
         base_url: @base_url,
-        path: 'agris/AGRIS.Env.MessageRouter/AGRIS.Env.MessageRouter.asmx?WSDL'
+        path: "agris/AGRIS.Env.MessageRouter/AGRIS.Env.MessageRouter.asmx?WSDL"
       )
     end
   end

@@ -28,13 +28,13 @@ module Agris
         {
           login: {
             :@dataset => @context.dataset,
-            :@databasetype => 'SQL',
+            :@databasetype => "SQL",
             :@database => @context.database,
             :@userid => @context.userid,
             :@password => @context.password,
             :@datapath => @context.datapath,
-            :@log => 'Y',
-            :@loglevel => '9'
+            :@log => "Y",
+            :@loglevel => "9"
           }
         }
       end
@@ -43,8 +43,8 @@ module Agris
         {
           input: {
             :@endofprocessoption => 1,
-            :@altnameidonfile => 'N',
-            :@usecurdate4outofrange => 'N',
+            :@altnameidonfile => "N",
+            :@usecurdate4outofrange => "N",
             :@reportoption => 1,
             :@usefile => false
           }
@@ -56,9 +56,9 @@ module Agris
           Gyoku.xml(detail: detail)
         end.join
 
-        '<xml>' \
+        "<xml>" \
         "#{Gyoku.xml(post_input_hash)}<details>#{details_xml}</details>" \
-        '</xml>'
+        "</xml>"
       end
 
       def import(model)

@@ -22,8 +22,8 @@ module Agris
         def input_hash
           {
             :@endofprocessoption => 1,
-            :@altnameidonfile => 'N',
-            :@usecurdate4outofrange => 'N',
+            :@altnameidonfile => "N",
+            :@usecurdate4outofrange => "N",
             :@reportoption => 1,
             :@usefile => false
           }

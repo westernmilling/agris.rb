@@ -15,7 +15,7 @@ module Agris
         def initialize(hash = {})
           super
 
-          @record_type = 'GRNT2'
+          @record_type = "GRNT2"
         end
       end
     end

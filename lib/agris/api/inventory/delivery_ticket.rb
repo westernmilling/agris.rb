@@ -41,27 +41,27 @@ module Agris
 
         def self.from_xml_hash(hash)
           super.tap do |delivery_ticket|
-            if hash['lineitems']
+            if hash["lineitems"]
               delivery_ticket.line_items.concat(
-                [hash['lineitems']['lineitem']]
+                [hash["lineitems"]["lineitem"]]
                 .flatten
                 .map do |lineitem|
                   DeliveryTicketLineItem.from_xml_hash(lineitem)
                 end
               )
             end
-            if hash['remarks']
+            if hash["remarks"]
               delivery_ticket.remarks.concat(
-                [hash['remarks']['remark']]
+                [hash["remarks"]["remark"]]
                 .flatten
                 .map do |remark|
                   Agris::Api::Remark.from_xml_hash(remark)
                 end
               )
             end
-            if hash['trancodes']
+            if hash["trancodes"]
               delivery_ticket.tran_codes.concat(
-                [hash['trancodes']['trancode']]
+                [hash["trancodes"]["trancode"]]
                 .flatten
                 .map do |trancode|
                   Agris::Api::TranCode.from_xml_hash(trancode)

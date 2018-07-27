@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nokogiri'
+require "nokogiri"
 
 class Hash
   class << self
@@ -31,7 +31,7 @@ class Hash
       node.children.each do |child|
         result = xml_node_to_hash(child)
 
-        if child.name == 'text'
+        if child.name == "text"
           unless child.next_sibling || child.previous_sibling
             return result unless attributes
             result_hash[key_value(child)] = result

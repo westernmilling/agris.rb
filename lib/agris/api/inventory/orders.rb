@@ -13,7 +13,7 @@ module Agris
           PostResult.new(response)
         end
 
-        def order(order_location, order_number, order_type = 'S')
+        def order(order_location, order_number, order_type = "S")
           extract = SpecificOrderExtract.new(
             order_location, order_number, order_type
           )

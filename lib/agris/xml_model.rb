@@ -11,7 +11,7 @@ module Agris
 
       def attributes
         (instance_variables - [:@hash]).each_with_object({}) do |ivar, new_hash|
-          new_hash[ivar.to_s.delete('@')] = instance_variable_get(ivar)
+          new_hash[ivar.to_s.delete("@")] = instance_variable_get(ivar)
           new_hash
         end
       end
@@ -49,7 +49,7 @@ module Agris
         attribute_map =
           klass::ATTRIBUTE_NAMES
           .each_with_object({}) do |name, new_hash|
-            new_hash[name.delete('_').to_s] = name
+            new_hash[name.delete("_").to_s] = name
           end
 
         translated_hash = hash.each_with_object({}) do |(key, value), new_hash|

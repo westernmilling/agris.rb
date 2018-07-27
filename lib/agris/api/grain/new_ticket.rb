@@ -80,7 +80,7 @@ module Agris
         def initialize(hash = {})
           super
 
-          @record_type = 'GRNT0'
+          @record_type = "GRNT0"
         end
 
         def add_application(application)

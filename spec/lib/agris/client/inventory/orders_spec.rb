@@ -1,13 +1,13 @@
 # frozen_string_literal: true
-require 'spec_helper'
-require 'savon/mock/spec_helper'
-require_relative '../shared_contexts'
+require "spec_helper"
+require "savon/mock/spec_helper"
+require_relative "../shared_contexts"
 
 describe Agris::Client, :agris_api_mock do
   include Savon::SpecHelper
 
-  describe '#orders_changed_since' do
-    include_context 'test agris client'
+  describe "#orders_changed_since" do
+    include_context "test agris client"
 
     before do
       savon
@@ -19,16 +19,16 @@ describe Agris::Client, :agris_api_mock do
     let(:response_body) do
       File.read(File.join(%W(./ spec fixtures agris #{fixture_file})))
     end
-    let(:datetime) { Time.parse('2018-01-03T14:25:00)') }
+    let(:datetime) { Time.parse("2018-01-03T14:25:00)") }
 
-    context 'when orders are returned' do
+    context "when orders are returned" do
       let(:fixture_file) do
-        'inventory/orders_two_results_no_detail.xml'
+        "inventory/orders_two_results_no_detail.xml"
       end
-      let(:order_number_1) { '000001' }
-      let(:order_number_2) { '000002' }
+      let(:order_number_1) { "000001" }
+      let(:order_number_2) { "000002" }
 
-      it 'returns the orders' do
+      it "returns the orders" do
         result = client.orders_changed_since(datetime)
 
         expect(result.documents.length).to eq(2)
@@ -37,10 +37,10 @@ describe Agris::Client, :agris_api_mock do
       end
     end
 
-    context 'when no orders are found' do
-      let(:fixture_file) { 'inventory/order_not_found_result.xml' }
+    context "when no orders are found" do
+      let(:fixture_file) { "inventory/order_not_found_result.xml" }
 
-      it 'returns no order' do
+      it "returns no order" do
         result = client.orders_changed_since(datetime)
 
         expect(result.documents.length).to eq(0)

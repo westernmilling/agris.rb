@@ -3,21 +3,21 @@ module Agris
   module Api
     PostResult = Struct.new(:response) do
       def document_number
-        results['result']['document']
+        results["result"]["document"]
       end
 
       def reject_reasons
-        results['result']['rejects']['reject']
+        results["result"]["rejects"]["reject"]
           .compact
-          .map { |rejection| rejection['reason'] }
+          .map { |rejection| rejection["reason"] }
       end
 
       def results
-        response.output_hash['results']
+        response.output_hash["results"]
       end
 
       def status
-        results.fetch('result', 'status' => 'No Result').fetch('status')
+        results.fetch("result", "status" => "No Result").fetch("status")
       end
     end
   end
