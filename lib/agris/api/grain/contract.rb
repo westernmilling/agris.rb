@@ -4,6 +4,7 @@ module Agris
     module Grain
       class Contract
         include XmlModel
+        include Support
 
         ATTRIBUTE_NAMES = %w(
           contract_location
@@ -90,6 +91,10 @@ module Agris
               )
             end
           end
+        end
+
+        def import_to_agris
+          import(self)
         end
 
         def initialize(hash = {})
