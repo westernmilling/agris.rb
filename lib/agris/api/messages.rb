@@ -16,12 +16,16 @@ module Agris
                'agris/api/messages/query_commodity_code_documents'
       autoload :QueryChangedDeliveryTickets,
                'agris/api/messages/query_changed_delivery_tickets'
+      autoload :QueryChangedSalesContracts,
+               'agris/api/messages/query_changed_sales_contracts'
       autoload :QueryChangedPurchaseContracts,
                'agris/api/messages/query_changed_purchase_contracts'
       autoload :QueryChangedInvoices,
                'agris/api/messages/query_changed_invoices'
       autoload :QueryChangedOrders,
                'agris/api/messages/query_changed_orders'
+      autoload :QuerySalesContractDocuments,
+               'agris/api/messages/query_sales_contract_documents'
       autoload :QueryPurchaseContractDocuments,
                'agris/api/messages/query_purchase_contract_documents'
       autoload :QueryDeliveryTicketDocuments,

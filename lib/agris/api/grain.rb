@@ -9,10 +9,11 @@ module Agris
       autoload :NewTicket, 'agris/api/grain/new_ticket'
       autoload :NewTicketApplication, 'agris/api/grain/new_ticket_application'
       autoload :NewTicketRemark, 'agris/api/grain/new_ticket_remark'
+      autoload :SalesContracts, 'agris/api/grain/sales_contracts'
       autoload :SpecificCommodityCodeExtract,
                'agris/api/grain/specific_commodity_code_extract'
-      autoload :SpecificPurchaseContractExtract,
-               'agris/api/grain/specific_purchase_contract_extract'
+      autoload :SpecificContractExtract,
+               'agris/api/grain/specific_contract_extract'
       autoload :Tickets,
                'agris/api/grain/tickets'
     end
