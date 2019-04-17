@@ -69,9 +69,9 @@ describe Agris::Client, :agris_api_mock do
 
       let(:purchase_contract_extracts) do
         [
-          Agris::Api::Grain::SpecificPurchaseContractExtract
+          Agris::Api::Grain::SpecificContractExtract
             .new(contract_location_1, contract_number_1),
-          Agris::Api::Grain::SpecificPurchaseContractExtract
+          Agris::Api::Grain::SpecificContractExtract
             .new(contract_location_2, contract_number_2)
         ]
       end
