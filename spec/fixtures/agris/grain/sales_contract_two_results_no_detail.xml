@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <ProcessMessageResponse xmlns="http://www.deere.com/agriservices/">
+      <ProcessMessageResult>true</ProcessMessageResult>
+      <AgOutput_obj_p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;contracts&gt;&lt;system message="80150" package="GRN" messageversion="18.1.0" lastrequestdatetime="2018-03-29T14:13:11" filename="" systemversion="18.1.0" systemid="G7"
+        componentserver="serverabc" dbservername="serverabc" dbname="AGRIS" datapath="\\serverabc\apps\agris\datasets\001" datasetnumber="001" datasetdescription="Production Data" datasetid="BBC"
+        datasetguid="441BC291-951E-4F9B-84B8-4770993E6F09" licenseguid="713A6F97-5801-4698-AD4F-666CED9C8FAD" count="50" startdatetime="2018-03-29T14:13:11" enddatetime="2018-03-29T14:13:11" elapsemillisecond="172" /&gt;&lt;contract
+        uniqueid="GRN:PCONT:ABC:000001:1000001-00" integrationguid="" purchasesales="S" contractlocation="AAA" contractnumber="0000001" contractnameid="10000001-00" delete="false" /&gt;&lt;contract uniqueid="GRN:PCONT:ABC:0000001:10000001-00"
+        integrationguid="" purchasesales="S" contractlocation="ABC" contractnumber="0000002" contractnameid="1000001-00" delete="false" /&gt;&lt;/contracts&gt;</AgOutput_obj_p><AgError_str_p/></ProcessMessageResponse>
+  </soap:Body>
+</soap:Envelope>
