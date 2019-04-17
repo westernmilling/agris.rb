@@ -5,6 +5,7 @@ module Agris
     include Api::AccountsReceivables::Invoices
     include Api::Grain::CommodityCodes
     include Api::Grain::PurchaseContracts
+    include Api::Grain::SalesContracts
     include Api::Grain::Tickets
     include Api::Inventory::DeliveryTickets
     include Api::Inventory::Orders

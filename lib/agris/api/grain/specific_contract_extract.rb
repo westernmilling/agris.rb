@@ -2,7 +2,7 @@
 module Agris
   module Api
     module Grain
-      class SpecificPurchaseContractExtract
+      class SpecificContractExtract
         include ::Agris::XmlModel
 
         attr_accessor :contract_location, :contract_number
