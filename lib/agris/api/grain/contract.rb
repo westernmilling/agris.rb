@@ -73,7 +73,8 @@ module Agris
                 [hash['schedules']['schedule']]
                   .flatten
                   .map do |schedule|
-                    Schedule.from_xml_hash(schedule)
+                    enhanced_schedule = add_transcodes_to_schedule(schedule)
+                    Schedule.from_xml_hash(enhanced_schedule)
                   end
               )
             end
@@ -96,6 +97,17 @@ module Agris
           super
 
           @schedules = []
+        end
+
+        # This adds the transcode attributes like salesperson into the schedule
+        def self.add_transcodes_to_schedule(schedule)
+          schedule['trancodes']['trancode'].each do |trancode|
+            label_code = trancode['label'].downcase + 'code'
+            schedule[label_code] = trancode['code']
+            label_description = trancode['label'].downcase + 'description'
+            schedule[label_description] = trancode['description']
+          end
+          schedule
         end
 
         class Schedule
@@ -227,6 +239,10 @@ module Agris
             variety
             class
             variety_description
+            salesperson_code
+            salesperson_description
+            merchandiser_code
+            merchandiser_description
           ).freeze
 
           attr_reader(*ATTRIBUTE_NAMES)

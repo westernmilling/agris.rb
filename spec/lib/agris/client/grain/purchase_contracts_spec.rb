@@ -82,6 +82,8 @@ describe Agris::Client, :agris_api_mock do
         expect(result.documents.length).to eq(2)
         expect(result.documents[0].contract_number).to eq(contract_number_1)
         expect(result.documents[1].contract_number).to eq(contract_number_2)
+        expect(result.documents[1].schedules[0].salesperson_code).to \
+          eq('001')
       end
     end
   end
