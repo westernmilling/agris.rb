@@ -86,6 +86,28 @@ describe Agris::Client, :agris_api_mock do
           eq('001')
       end
     end
+
+    context 'when transcodes are missing' do
+      let(:fixture_file) do
+        'grain/purchase_contract_one_result_no_trancode.xml'
+      end
+      let(:contract_location_1) { 'ABC' }
+      let(:contract_number_1) { '0000011' }
+
+      let(:purchase_contract_extracts) do
+        [
+          Agris::Api::Grain::SpecificContractExtract
+            .new(contract_location_1, contract_number_1)
+        ]
+      end
+
+      it 'returns the contracts' do
+        result = client.purchase_contracts(purchase_contract_extracts)
+
+        expect(result.documents.length).to eq(1)
+        expect(result.documents[0].contract_number).to eq(contract_number_1)
+      end
+    end
   end
 
   describe '#purchase_contracts_changed_since' do
