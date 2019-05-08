@@ -84,6 +84,30 @@ describe Agris::Client, :agris_api_mock do
         expect(result.documents[1].contract_number).to eq(contract_number_2)
       end
     end
+
+    context 'when one trancode is present' do
+      let(:fixture_file) do
+        'grain/sales_contract_one_result_one_trancode.xml'
+      end
+      let(:contract_location_1) { 'ABC' }
+      let(:contract_number_1) { '0000011' }
+
+      let(:sales_contract_extracts) do
+        [
+          Agris::Api::Grain::SpecificContractExtract
+            .new(contract_location_1, contract_number_1)
+        ]
+      end
+
+      it 'returns the contracts' do
+        result = client.sales_contracts(sales_contract_extracts)
+
+        expect(result.documents.length).to eq(1)
+        expect(result.documents[0].contract_number).to eq(contract_number_1)
+        expect(result.documents[0].schedules[0].salesperson_code).to \
+          eq('001')
+      end
+    end
   end
 
   describe '#sales_contracts_changed_since' do

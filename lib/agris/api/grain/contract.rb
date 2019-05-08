@@ -101,11 +101,15 @@ module Agris
 
         # This adds the transcode attributes like salesperson into the schedule
         def self.add_transcodes_to_schedule(schedule)
-          schedule['trancodes']['trancode'].each do |trancode|
-            label_code = trancode['label'].downcase + 'code'
-            schedule[label_code] = trancode['code']
-            label_description = trancode['label'].downcase + 'description'
-            schedule[label_description] = trancode['description']
+          if schedule['trancodes']
+            trancodes = schedule['trancodes']['trancode']
+            trancodes = [trancodes] unless trancodes.class == Array
+            trancodes.each do |trancode|
+              label_code = trancode['label'].downcase + 'code'
+              schedule[label_code] = trancode['code']
+              label_description = trancode['label'].downcase + 'description'
+              schedule[label_description] = trancode['description']
+            end
           end
           schedule
         end
