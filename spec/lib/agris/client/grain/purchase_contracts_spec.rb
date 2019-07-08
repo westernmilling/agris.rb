@@ -25,7 +25,8 @@ describe Agris::Client, :agris_api_mock do
       let(:contract_location) { 'ABC' }
       let(:contract_number) { '0000025' }
 
-      let(:remark) { 'Test remark #14' }
+      let(:remark4) { 'Test Remark #4' }
+      let(:remark14) { 'Test Remark #14' }
 
       it 'returns the contract' do
         result = client.purchase_contract(contract_location, contract_number)
@@ -38,8 +39,10 @@ describe Agris::Client, :agris_api_mock do
         result = client.purchase_contract(contract_location, contract_number)
 
         expect(result.remarks.length).to eq(1)
-        expect(result.remarks[0]).to have_key('remark')
-        expect(result.remarks[0]['remark']['value']).to eq(remark)
+        expect(result.remarks.first).to have_key('remark')
+        expect(result.remarks.first['remark'].length).to eq 2
+        expect(result.remarks.first['remark'].first['value']).to eq(remark4)
+        expect(result.remarks.first['remark'].last['value']).to eq(remark14)
       end
     end
 
