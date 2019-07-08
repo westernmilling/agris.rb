@@ -39,7 +39,6 @@ describe Agris::Client, :agris_api_mock do
 
         expect(result.remarks.length).to eq(1)
         expect(result.remarks[0]).to have_key('remark')
-
         expect(result.remarks[0]['remark']['value']).to eq(remark)
       end
     end
