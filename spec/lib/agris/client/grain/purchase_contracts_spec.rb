@@ -23,13 +23,24 @@ describe Agris::Client, :agris_api_mock do
     context 'when a contract is found' do
       let(:fixture_file) { 'grain/purchase_contract_one_result.xml' }
       let(:contract_location) { 'ABC' }
-      let(:contract_number) { '0000011' }
+      let(:contract_number) { '0000025' }
+
+      let(:remark) { 'Test remark #14' }
 
       it 'returns the contract' do
         result = client.purchase_contract(contract_location, contract_number)
 
         expect(result.documents.length).to eq(1)
         expect(result.documents[0].contract_number).to eq(contract_number)
+      end
+
+      it 'returns the contract remarks' do
+        result = client.purchase_contract(contract_location, contract_number)
+
+        expect(result.remarks.length).to eq(1)
+        expect(result.remarks[0]).to have_key('remark')
+
+        expect(result.remarks[0]['remark']['value']).to eq(remark)
       end
     end
 
