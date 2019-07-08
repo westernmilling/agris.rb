@@ -20,6 +20,10 @@ module Agris
         @documents ||= parse
       end
 
+      def remarks
+        resources.map { |r| r['remarks'] }
+      end
+
       protected
 
       def parse
