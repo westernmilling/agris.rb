@@ -62,6 +62,7 @@ module Agris
           delete
           last_change_user_id
           last_change_username
+          remarks
         ).freeze
 
         attr_reader(*(%w(schedules) + ATTRIBUTE_NAMES))
