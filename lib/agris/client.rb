@@ -17,12 +17,14 @@ module Agris
     def initialize(
       context = Agris.context,
       credentials = Agris.credentials,
+      dataset = Agris.dataset,
       options = {}
     )
       @context = context
       @logger = options[:logger] || Agris.logger
       @request_type = options[:request_type] || Agris.request_type
       @proxy_url = options.fetch(:proxy_url, Agris.proxy_url)
+      @dataset = dataset
       @request = @request_type.new(
         @context.base_url, credentials, @logger, @proxy_url
       )

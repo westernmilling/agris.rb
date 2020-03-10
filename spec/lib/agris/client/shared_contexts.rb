@@ -8,6 +8,7 @@ shared_context 'test agris client' do
     Agris::Client.new(
       context,
       Agris::Credentials::Anonymous.new,
+      '001',
       options
     )
   end
