@@ -27,7 +27,7 @@ module Agris
       def context_hash
         {
           login: {
-            :@dataset => @context.dataset,
+            :@dataset => @dataset || @context.default_dataset,
             :@databasetype => 'SQL',
             :@database => @context.database,
             :@userid => @context.userid,
