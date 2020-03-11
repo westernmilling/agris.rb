@@ -34,6 +34,8 @@ describe Agris::Client, :agris_api_mock do
   context 'when the post is processed' do
     let(:fixture_file) { 'create_order_processed.xml' }
     context 'with the default dataset' do
+      let(:fixture_file) { 'create_order_processed.xml' }
+
       it 'should return a result with status of Processed' do
         result = client.create_order(agris_new_order)
 
@@ -42,6 +44,8 @@ describe Agris::Client, :agris_api_mock do
     end
 
     context 'with a new  dataset' do
+      let(:fixture_file) { 'create_order_processed_new_dataset.xml' }
+
       let!(:client) do
         options = {
           logger: Logger.new(STDOUT),
