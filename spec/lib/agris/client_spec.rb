@@ -33,11 +33,33 @@ describe Agris::Client, :agris_api_mock do
 
   context 'when the post is processed' do
     let(:fixture_file) { 'create_order_processed.xml' }
+    context 'with the default dataset' do
+      it 'should return a result with status of Processed' do
+        result = client.create_order(agris_new_order)
 
-    it 'should return a result with status of Processed' do
-      result = client.create_order(agris_new_order)
+        expect(result.status).to eq 'Processed'
+      end
+    end
 
-      expect(result.status).to eq 'Processed'
+    context 'with a new  dataset' do
+      let!(:client) do
+        options = {
+          logger: Logger.new(STDOUT),
+          request_type: Agris::SavonRequest
+        }
+        Agris::Client.new(
+          context,
+          Agris::Credentials::Anonymous.new,
+          '007',
+          options
+        )
+      end
+
+      it 'should return a result with status of Processed' do
+        result = client.create_order(agris_new_order)
+
+        expect(result.status).to eq 'Processed'
+      end
     end
   end
 
