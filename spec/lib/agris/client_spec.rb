@@ -54,8 +54,8 @@ describe Agris::Client, :agris_api_mock do
         Agris::Client.new(
           context,
           Agris::Credentials::Anonymous.new,
-          '007',
-          options
+          options,
+          '007'
         )
       end
 
