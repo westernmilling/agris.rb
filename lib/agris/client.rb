@@ -17,8 +17,8 @@ module Agris
     def initialize(
       context = Agris.context,
       credentials = Agris.credentials,
-      dataset = Agris.dataset,
-      options = {}
+      options = {},
+      dataset = Agris.dataset
     )
       @context = context
       @logger = options[:logger] || Agris.logger
