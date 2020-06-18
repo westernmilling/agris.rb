@@ -72,6 +72,11 @@ module Agris
         ).freeze
 
         attr_reader(*(%w(line_items) + ATTRIBUTE_NAMES))
+        attr_accessor(*(%w(line_items) + ATTRIBUTE_NAMES))
+
+        def records
+          [self]
+        end
 
         def self.from_xml_hash(hash)
           super.tap do |document|
@@ -90,6 +95,7 @@ module Agris
         def initialize(hash = {})
           super
 
+          @record_type = 'ACRI0'
           @line_items = []
         end
 
@@ -159,6 +165,7 @@ module Agris
           ).freeze
 
           attr_reader(*ATTRIBUTE_NAMES)
+          attr_accessor(*ATTRIBUTE_NAMES)
         end
       end
     end

@@ -31,7 +31,7 @@ describe Agris::Client, :agris_api_mock do
     end
 
     let(:new_invoice) do
-      Agris::Api::AccountsReceivables::NewInvoice.new(new_invoice_values)
+      Agris::Api::AccountsReceivables::Invoice.new(new_invoice_values)
     end
 
     let(:response_body) do
