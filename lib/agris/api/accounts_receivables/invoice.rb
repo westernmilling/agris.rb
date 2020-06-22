@@ -111,10 +111,6 @@ module Agris
           @line_items || []
         end
 
-        def xml_ignore_attributes
-          %i(line_items)
-        end
-
         def general_ledger_details
           @general_ledger_details || []
         end
