@@ -23,6 +23,10 @@ module Agris
             Agris::Api::AccountsReceivables::Invoice
           )
         end
+
+        def create_invoice(new_invoice)
+          import(new_invoice)
+        end
       end
     end
   end

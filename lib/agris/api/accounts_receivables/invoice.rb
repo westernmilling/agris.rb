@@ -71,7 +71,8 @@ module Agris
           unique_id
         ).freeze
 
-        attr_reader(*(%w(line_items) + ATTRIBUTE_NAMES))
+        attr_reader :record_type
+        attr_accessor(*(%w(line_items) + ATTRIBUTE_NAMES))
 
         def self.from_xml_hash(hash)
           super.tap do |document|
@@ -90,7 +91,39 @@ module Agris
         def initialize(hash = {})
           super
 
+          @record_type = 'ACRI0'
           @line_items = []
+          @general_ledger_details = []
+        end
+
+        def add_line_item(line_item)
+          @line_items ||= []
+          @line_items << line_item
+
+          self
+        end
+
+        def records
+          [self] + line_items + general_ledger_details
+        end
+
+        def line_items
+          @line_items || []
+        end
+
+        def general_ledger_details
+          @general_ledger_details || []
+        end
+
+        def xml_ignore_attributes
+          %i(line_items general_ledger_details)
+        end
+
+        def add_general_ledger_detail(general_ledger_detail)
+          @general_ledger_details ||= []
+          @general_ledger_details << general_ledger_detail
+
+          self
         end
 
         class LineItem
@@ -158,7 +191,24 @@ module Agris
             cost_adjustment_description
           ).freeze
 
-          attr_reader(*ATTRIBUTE_NAMES)
+          attr_accessor(*ATTRIBUTE_NAMES)
+        end
+
+        class GeneralLedgerDetail
+          include XmlModel
+
+          ATTRIBUTE_NAMES = %w(
+            distribution_amount
+            gl_account_main_code
+            gl_account_detail_code
+            record_type
+          ).freeze
+
+          def initialize(hash = {})
+            super(hash)
+
+            @record_type = 'ACRI2'
+          end
         end
       end
     end
