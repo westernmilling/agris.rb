@@ -9,7 +9,7 @@ shared_context 'test agris client' do
       context,
       Agris::Credentials::Anonymous.new,
       options,
-      '001'
+      dataset: '001'
     )
   end
   let(:context) do
