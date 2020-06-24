@@ -18,13 +18,13 @@ module Agris
       context = Agris.context,
       credentials = Agris.credentials,
       options = {},
-      dataset: dataset || Agris.context.default_dataset
+      dataset:
     )
       @context = context
       @logger = options[:logger] || Agris.logger
       @request_type = options[:request_type] || Agris.request_type
       @proxy_url = options.fetch(:proxy_url, Agris.proxy_url)
-      @dataset = dataset
+      @dataset = dataset || Agris.context.default_dataset
       @request = @request_type.new(
         @context.base_url, credentials, @logger, @proxy_url
       )
