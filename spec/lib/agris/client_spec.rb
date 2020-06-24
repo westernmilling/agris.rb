@@ -55,14 +55,16 @@ describe Agris::Client, :agris_api_mock do
           context,
           Agris::Credentials::Anonymous.new,
           options,
-          '007'
+          dataset: '007'
         )
       end
 
       it 'should return a result with status of Processed' do
+        expect(client.context_hash[:login][:@dataset]).to eq '007'
         result = client.create_order(agris_new_order)
 
         expect(result.status).to eq 'Processed'
+        expect(result.results['system']['datasetnumber']).to eq '007'
       end
     end
   end

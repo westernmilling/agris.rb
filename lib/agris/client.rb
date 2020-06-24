@@ -18,7 +18,7 @@ module Agris
       context = Agris.context,
       credentials = Agris.credentials,
       options = {},
-      dataset = context.default_dataset
+      dataset: dataset || Agris.context.default_dataset
     )
       @context = context
       @logger = options[:logger] || Agris.logger
