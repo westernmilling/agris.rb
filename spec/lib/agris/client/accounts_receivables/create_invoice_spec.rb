@@ -26,20 +26,23 @@ describe Agris::Client, :agris_api_mock do
           recordtype: 'ACRI2',
           glaccountmaincode: '43305',
           glaccountdetailcode: 'WC',
-          distributionamount: '45.00'
+          distributionamount: '45.00',
+          executionid: '102050'
         },
         {
           recordtype: 'ACRI2',
           glaccountmaincode: '43305',
           glaccountdetailcode: 'WC',
-          distributionamount: '55.00'
+          distributionamount: '55.00',
+          executionid: '102050'
 
         },
         {
           recordtype: 'ACRI2',
           glaccountmaincode: '43305',
           glaccountdetailcode: 'WC',
-          distributionamount: '50.00'
+          distributionamount: '50.00',
+          executionid: '102050'
 
         }
       ]
@@ -78,7 +81,8 @@ describe Agris::Client, :agris_api_mock do
               recordtype: 'ACRI2',
               glaccountmaincode: gl[:glaccountmaincode],
               glaccountdetailcode: gl[:glaccountdetailcode],
-              distributionamount: gl[:distributionamount]
+              distributionamount: gl[:distributionamount],
+              executionid: gl[:executionid]
             )
           invoice.add_general_ledger_detail(detail)
         end

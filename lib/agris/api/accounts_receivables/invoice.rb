@@ -202,6 +202,7 @@ module Agris
             gl_account_main_code
             gl_account_detail_code
             record_type
+            execution_id
           ).freeze
 
           def initialize(hash = {})
