@@ -201,6 +201,7 @@ module Agris
             distribution_amount
             gl_account_main_code
             gl_account_detail_code
+            gl_loc_code
             record_type
             execution_id
           ).freeze
