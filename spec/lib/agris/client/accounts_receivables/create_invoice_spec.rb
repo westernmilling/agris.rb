@@ -41,6 +41,7 @@ describe Agris::Client, :agris_api_mock do
           recordtype: 'ACRI2',
           glaccountmaincode: '43305',
           glaccountdetailcode: 'WC',
+          glloccode: '98',
           distributionamount: '50.00',
           executionid: '102050'
 
@@ -81,6 +82,7 @@ describe Agris::Client, :agris_api_mock do
               recordtype: 'ACRI2',
               glaccountmaincode: gl[:glaccountmaincode],
               glaccountdetailcode: gl[:glaccountdetailcode],
+              glloccode: gl[:glloccode],
               distributionamount: gl[:distributionamount],
               executionid: gl[:executionid]
             )
