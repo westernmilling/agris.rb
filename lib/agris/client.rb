@@ -22,11 +22,12 @@ module Agris
     )
       @context = context
       @logger = options[:logger] || Agris.logger
+      @log_level = options[:log_level] || Agris.log_level
       @request_type = options[:request_type] || Agris.request_type
       @proxy_url = options.fetch(:proxy_url, Agris.proxy_url)
       @dataset = dataset || Agris.context.default_dataset
       @request = @request_type.new(
-        @context.base_url, credentials, @logger, @proxy_url
+        @context.base_url, credentials, @logger, @log_level, @proxy_url
       )
     end
 

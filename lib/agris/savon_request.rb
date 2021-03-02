@@ -4,10 +4,11 @@ require 'savon'
 
 module Agris
   class SavonRequest
-    def initialize(base_url, credentials, logger, proxy_url = nil)
+    def initialize(base_url, credentials, logger, log_level, proxy_url = nil)
       @base_url = base_url
       @credentials = credentials
       @logger = logger
+      @log_level = log_level
       @proxy_url = proxy_url
     end
 
@@ -45,7 +46,7 @@ module Agris
         raise_errors: false,
         logger: @logger,
         log: true,
-        log_level: :debug
+        log_level: @log_level || :debug
       }
       options = options.merge(proxy: @proxy_url) unless @proxy_url.to_s == ''
       options = @credentials.apply(options)
