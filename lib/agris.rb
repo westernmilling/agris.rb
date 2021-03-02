@@ -14,6 +14,7 @@ module Agris
     attr_accessor :credentials,
                   :context,
                   :logger,
+                  :log_level,
                   :proxy_url,
                   :request_type,
                   :user_agent
