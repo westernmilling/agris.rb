@@ -5,6 +5,7 @@ module Agris
       autoload :Commodity, 'agris/api/grain/commodity'
       autoload :CommodityCodes, 'agris/api/grain/commodity_codes'
       autoload :Contract, 'agris/api/grain/contract'
+      autoload :GradeFactors, 'agris/api/grain/grade_factors'
       autoload :PurchaseContracts, 'agris/api/grain/purchase_contracts'
       autoload :NewTicket, 'agris/api/grain/new_ticket'
       autoload :NewTicketApplication, 'agris/api/grain/new_ticket_application'
