@@ -9,11 +9,7 @@ module Agris
       end
 
       def last_request_date_time
-        Time.parse(
-          @output_hash[pluralized_resource_name] \
-                      ['system'] \
-                      ['lastrequestdatetime']
-        )
+        Time.parse(@output_hash[pluralized_resource_name]['system']['lastrequestdatetime'])
       end
 
       def documents
@@ -27,18 +23,13 @@ module Agris
       protected
 
       def parse
-        resources
-          .map do |order_hash|
+        resources.map do |order_hash|
           resource_type.from_xml_hash(order_hash)
         end
       end
 
       def resource_name
-        @resource_name ||= resource_type
-                           .name
-                           .split('::')
-                           .last
-                           .downcase
+        @resource_name ||= resource_type.name.split('::').last.downcase
       end
 
       def pluralized_resource_name
@@ -46,21 +37,12 @@ module Agris
       end
 
       def resource_type
-        @resource_type ||= Object.const_get(
-          self
-            .class
-            .name
-            .split('::')
-            .last
-            .chomp('ExtractResponse')
-        )
+        @resource_type ||= Object.const_get(self.class.name.split('::').last.chomp('ExtractResponse'))
       end
 
       def resources
         # Wrap and flatten for single responses
-        [@output_hash[pluralized_resource_name][resource_name]]
-          .compact
-          .flatten
+        [@output_hash[pluralized_resource_name][resource_name]].compact.flatten
       end
     end
   end
