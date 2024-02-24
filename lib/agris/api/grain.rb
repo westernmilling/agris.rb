@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Agris
   module Api
     module Grain
@@ -6,7 +7,10 @@ module Agris
       autoload :CommodityCodes, 'agris/api/grain/commodity_codes'
       autoload :Contract, 'agris/api/grain/contract'
       autoload :GradeFactors, 'agris/api/grain/grade_factors'
+      autoload :GrainModule, 'agris/api/grain/grain_module'
       autoload :PurchaseContracts, 'agris/api/grain/purchase_contracts'
+      autoload :NewContract, 'agris/api/grain/new_contract'
+      autoload :NewContractSchedule, 'agris/api/grain/new_contract_schedule'
       autoload :NewTicket, 'agris/api/grain/new_ticket'
       autoload :NewTicketApplication, 'agris/api/grain/new_ticket_application'
       autoload :NewTicketRemark, 'agris/api/grain/new_ticket_remark'
