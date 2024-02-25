@@ -73,14 +73,3 @@ module Agris
     end
   end
 end
-
-# I.   reserved 1
-# V. DISC TABLES
-# X. ADD UPDATE OPTION
-# Z.   reserved 2
-# AD. UPDATE FLD SELECT
-# AF. FIRST 20 DISCOUNT TAB
-# AG. LAST 20 DISCOUNT TABL
-# AH.   reserved 3
-# AI.   reserved 4
-

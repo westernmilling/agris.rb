@@ -5,8 +5,6 @@ module Agris
       class NewContractSchedule
         include XmlModel
 
-          apply_status
-
         ATTRIBUTE_NAMES = %w(
           price_status
           apply_name_id
@@ -94,27 +92,26 @@ module Agris
 
           @record_type = 'GRNC1'
         end
+
+        def add_trans_code(trans_code)
+          @trans_codes ||= []
+          @trans_codes << trans_code
+
+          self
+        end
+
+        def records
+          [self] + trans_codes
+        end
+
+        def trans_codes
+          @trans_codes || []
+        end
+
+        def xml_ignore_attributes
+          %i(trans_codes)
+        end
       end
     end
   end
 end
-
-# salesperson_code
-# merchandiser_code
-
-# H. tran code 1
-# I. tran code 2
-# J. tran code 3
-# K. tran code 4
-# L. tran code 5
-# AX. UPDATE FLD SELECT 1
-# AY. UPDATE FLD SELECT 2
-# AZ. UPDATE FLD SELECT 3
-# BA. DISC TABLES
-# BL. TRANSPORT MODE
-# CH. FIRST 20 DISCOUNT TAB
-# CK. LAST 20 DISCOUNT TABL
-# CL.   reserved 1
-# CM.   reserved 2
-# CN.   reserved 3
-# CO.   reserved 4
