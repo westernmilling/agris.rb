@@ -100,12 +100,12 @@ module Agris
           self
         end
 
-        def records
-          [self] + trans_codes
-        end
-
         def trans_codes
           @trans_codes || []
+        end
+
+        def records
+          [self] + trans_codes
         end
 
         def xml_ignore_attributes

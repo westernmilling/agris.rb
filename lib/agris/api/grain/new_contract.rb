@@ -58,12 +58,16 @@ module Agris
           self
         end
 
-        def records
-          [self] + schedules + remarks
+        def schedules
+          @schedules || []
         end
 
         def remarks
           @remarks || []
+        end
+
+        def records
+          [self] + schedules + remarks
         end
 
         def xml_ignore_attributes
