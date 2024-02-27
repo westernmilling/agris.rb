@@ -12,8 +12,7 @@ module Agris
           contract_number
           contract_type
           commodity
-          variety
-          class
+          varietyclass
           status
           quantity_base
           weight_base
@@ -29,10 +28,10 @@ module Agris
           transport_mode
           dp_table
           invoice_terms
-          contract_quantity
+          scheduled_quantity
           contract_loads
           advance_percent
-          qty_uom
+          quantity_uom
         ).freeze
 
         attr_reader :record_type

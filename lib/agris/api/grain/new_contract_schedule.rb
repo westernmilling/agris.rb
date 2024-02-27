@@ -47,8 +47,7 @@ module Agris
           additional_freight
           exec_id
           trade_id
-          variety
-          class
+          varietyclass
           number
           dp_table
           schedule_code
