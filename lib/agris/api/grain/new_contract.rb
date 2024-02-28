@@ -32,6 +32,7 @@ module Agris
           contract_loads
           advance_percent
           quantity_uom
+          add_update_option
         ).freeze
 
         attr_reader :record_type
