@@ -82,6 +82,11 @@ module Agris
           freight_exchange_rate_date
           primary_schedule
           option_quantity
+          tran_code_1
+          tran_code_2
+          tran_code_3
+          tran_code_4
+          tran_code_5
         ).freeze
 
         attr_accessor(*ATTRIBUTE_NAMES)
@@ -92,23 +97,8 @@ module Agris
           @record_type = 'GRNC1'
         end
 
-        def add_trans_code(trans_code)
-          @trans_codes ||= []
-          @trans_codes << trans_code
-
-          self
-        end
-
-        def trans_codes
-          @trans_codes || []
-        end
-
         def records
-          [self] + trans_codes
-        end
-
-        def xml_ignore_attributes
-          %i(trans_codes)
+          [self]
         end
       end
     end
