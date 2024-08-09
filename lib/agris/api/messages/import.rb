@@ -24,7 +24,7 @@ module Agris
             :@endofprocessoption => 1,
             :@altnameidonfile => 'N',
             :@usecurdate4outofrange => 'N',
-            :@reportoption => 1,
+            :@reportoption => 0,
             :@usefile => false
           }
         end
