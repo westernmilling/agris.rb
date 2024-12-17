@@ -10,6 +10,7 @@ module Agris
     include Api::Grain::Tickets
     include Api::Inventory::DeliveryTickets
     include Api::Inventory::Orders
+    include Api::Name::FarmFields
     include Api::Support
 
     ##
