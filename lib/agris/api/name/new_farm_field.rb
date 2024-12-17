@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Agris
   module Api
     module Name
@@ -6,11 +7,13 @@ module Agris
         include XmlModel
 
         ATTRIBUTE_NAMES = %w(
-          nameid
-          farmdescription
-          status
-          abbreviation
-          fielddescription
+          name_id
+          farm_abbreviation
+          farm_status
+          farm_description
+          field_abbreviation
+          field_status
+          field_description
         ).freeze
 
         attr_accessor(*ATTRIBUTE_NAMES)
