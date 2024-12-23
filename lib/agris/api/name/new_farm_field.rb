@@ -16,12 +16,17 @@ module Agris
           field_description
         ).freeze
 
+        attr_reader :record_type
         attr_accessor(*ATTRIBUTE_NAMES)
 
         def initialize(hash = {})
           super
 
           @record_type = 'NAMF0'
+        end
+
+        def records
+          [self]
         end
       end
     end
