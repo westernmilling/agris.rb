@@ -8,16 +8,19 @@ jobs:
 
     working_directory: ~/agris
 
+    # The circleci/ruby:2.4.1 image ships Bundler 1.15.4, but the gemspec
+    # requires bundler ~> 2.3.7. BUNDLER_VERSION makes every `bundle` call
+    # in every step use 2.3.27 instead of the on-image default.
+    environment:
+      BUNDLER_VERSION: 2.3.27
+
     steps:
       - checkout
       - run:
           name: install dependencies
           command: |
-            # The circleci/ruby:2.4.1 image ships Bundler 1.15.4, but the
-            # gemspec requires bundler ~> 2.3.7. Install the required version
-            # before running bundle install.
-            gem install bundler -v '~> 2.3.7' --no-document
-            bundle _2.3.27_ install --jobs=4 --retry=3 --path vendor/bundle
+            gem install bundler -v 2.3.27 --no-document
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       # run tests!
       - run:
