@@ -13,7 +13,11 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            # The circleci/ruby:2.4.1 image ships Bundler 1.15.4, but the
+            # gemspec requires bundler ~> 2.3.7. Install the required version
+            # before running bundle install.
+            gem install bundler -v '~> 2.3.7' --no-document
+            bundle _2.3.27_ install --jobs=4 --retry=3 --path vendor/bundle
 
       - run:
           name: Setup Code Climate test-reporter
