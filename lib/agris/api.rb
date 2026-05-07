@@ -8,6 +8,7 @@ module Agris
     autoload :Grain, 'agris/api/grain'
     autoload :Inventory, 'agris/api/inventory'
     autoload :Messages, 'agris/api/messages'
+    autoload :Name, 'agris/api/name'
     autoload :NewOrder, 'agris/api/new_order'
     autoload :NewOrderRemark, 'agris/api/new_order_remark'
     autoload :NewVoucher, 'agris/api/new_voucher'
