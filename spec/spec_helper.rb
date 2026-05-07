@@ -3,7 +3,6 @@ require 'bundler/setup'
 require 'webmock/rspec'
 require 'simplecov'
 require 'agris'
-require 'pry'
 
 SimpleCov.start
 
