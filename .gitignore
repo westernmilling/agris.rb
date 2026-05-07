@@ -12,3 +12,8 @@
 .rspec_status
 .DS_Store
 /vendor
+
+# Claude Playbook (auto-added)
+.claude/state/
+.claude/settings.local.json
+.claude/agent-memory-local/
