@@ -3,8 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/ruby:2.4.1
+      - image: cimg/ruby:3.3.6
 
     working_directory: ~/agris
 
@@ -16,16 +15,8 @@ jobs:
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - run:
-          name: Setup Code Climate test-reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-
-      # run tests!
-      - run:
           name: run tests
           command: |
-            ./cc-test-reporter before-build
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
 
@@ -35,9 +26,7 @@ jobs:
               --format progress \
               -- \
               $TEST_FILES
-            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
 
-      # collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
