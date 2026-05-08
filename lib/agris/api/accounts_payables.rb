@@ -3,6 +3,8 @@
 module Agris
   module Api
     module AccountsPayables
+      autoload :Disbursements, 'agris/api/accounts_payables/disbursements'
+
       module Vouchers
         def create_voucher(voucher)
           response = @request.process_message(
