@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Agris::Api::NewDisbursement do
+describe Agris::Api::AccountsPayables::NewDisbursement do
   def build_acpd0_attributes
     {
       applied_date: '20260101',

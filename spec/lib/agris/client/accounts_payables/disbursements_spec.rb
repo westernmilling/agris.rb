@@ -46,7 +46,7 @@ describe Agris::Client do
     end
 
     def build_disbursement
-      Agris::Api::NewDisbursement.new(
+      Agris::Api::AccountsPayables::NewDisbursement.new(
         bank_code: 'WF',
         check_number: '0000123',
         name_id: 'V12345',

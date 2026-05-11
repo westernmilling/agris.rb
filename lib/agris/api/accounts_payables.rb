@@ -4,6 +4,7 @@ module Agris
   module Api
     module AccountsPayables
       autoload :Disbursements, 'agris/api/accounts_payables/disbursements'
+      autoload :NewDisbursement, 'agris/api/accounts_payables/new_disbursement'
 
       module Vouchers
         def create_voucher(voucher)
