@@ -31,6 +31,7 @@ module Agris
           tare_weight
           freight_weight
           freight_rate
+          freight_uom
           additional_freight
           cash_price
           cash_basis
