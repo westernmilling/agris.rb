@@ -7,6 +7,9 @@ module Agris
       autoload :NewPayment, 'agris/api/accounts_receivables/new_payment'
       autoload :NewPaymentRemark,
                'agris/api/accounts_receivables/new_payment_remark'
+      autoload :PaymentPostResult,
+               'agris/api/accounts_receivables/payment_post_result'
+      autoload :Payments, 'agris/api/accounts_receivables/payments'
       autoload :SpecificInvoiceExtract,
                'agris/api/accounts_receivables/specific_invoice_extract'
     end
