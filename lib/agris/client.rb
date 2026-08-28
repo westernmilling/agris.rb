@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module Agris
   class Client
+    include Api::AccountsPayables::Disbursements
     include Api::AccountsPayables::Vouchers
     include Api::AccountsReceivables::Invoices
     include Api::Grain::CommodityCodes
