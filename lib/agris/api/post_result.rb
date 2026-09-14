@@ -6,10 +6,18 @@ module Agris
         results['result']['document']
       end
 
+      # A processed post reports an empty `<reject />`, so there may be no
+      # rejections to read.
       def reject_reasons
-        results['result']['rejects']['reject']
+        rejects = results.fetch('result', {})['rejects']
+
+        return [] if rejects.nil?
+
+        [rejects['reject']]
+          .flatten
           .compact
           .map { |rejection| rejection['reason'] }
+          .compact
       end
 
       def results
