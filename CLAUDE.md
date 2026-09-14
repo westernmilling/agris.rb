@@ -10,7 +10,7 @@
   - Does not host or proxy Agris itself; callers supply their own endpoint, dataset, and credentials.
 
 ## Stack and Dependencies
-- **Languages/frameworks:** Ruby 3.1 (`.ruby-version`; CI image `cimg/ruby:3.1`). Rubocop still lints against `TargetRubyVersion: 2.4`.
+- **Languages/frameworks:** Ruby 3.1 (`.ruby-version`, which CI also reads). Rubocop still lints against `TargetRubyVersion: 2.4`.
 - **Key applications/packages:**
   - Runtime: `savon ~> 2.11` (SOAP client).
   - Dev/test: `rspec ~> 3.0`, `rspec_junit_formatter ~> 0.4.1`, `webmock ~> 2.3`, `simplecov 0.17`, `rubocop 0.54.0`, `pry-byebug`, `rake ~> 12.3.3`, `bundler ~> 2.3.7`.
@@ -44,7 +44,7 @@ Define key business terms unique to this project so agents use correct terminolo
 | Messages module | `Api::Messages::*` — document-tracking and "changed since" queries (invoices, sales contracts, delivery tickets, orders, commodity-code documents). |
 
 ## Local Development Setup
-- **Prerequisites:** Ruby 3.1.x and Bundler 2.3+. CI pins `cimg/ruby:3.1`; other Ruby versions may work but are unverified.
+- **Prerequisites:** Ruby 3.1.x and Bundler 2.3+. CI reads `.ruby-version`, so local dev and CI cannot drift; other Ruby versions may work but are unverified.
 - **Install steps:**
   1. `git clone git@github.com:westernmilling/agris.rb.git`
   2. `cd agris.rb`
@@ -54,7 +54,7 @@ Define key business terms unique to this project so agents use correct terminolo
 - **How to run tests:** `bundle exec rspec` (full suite), `bundle exec rspec spec/lib/agris/client/grain/purchase_contracts_spec.rb` (one file), or `bundle exec rake` (specs + rubocop).
 - **Key URLs:**
   - Repo: https://github.com/westernmilling/agris.rb
-  - CI: CircleCI (config at `.circleci/config.yml`).
+  - CI: GitHub Actions (workflow at `.github/workflows/ci.yml`).
   - Coverage / quality: Code Climate (badges in `README.md`; config in `.codeclimate.yml`).
 
 ## Common Gotchas
@@ -70,7 +70,7 @@ Define key business terms unique to this project so agents use correct terminolo
 ## Integrations
 - **Jira project key:** _Not configured for this repo._ <!-- Fill in if/when this gem is tracked in Jira; used for branch naming and issue linking. -->
 - **Staging URL:** N/A (library, no deployed environment).
-- **CI pipeline:** CircleCI 2.0 — `.circleci/config.yml`. Runs `bundle exec rspec` with JUnit output and uploads coverage to Code Climate via `cc-test-reporter`.
+- **CI pipeline:** GitHub Actions — `.github/workflows/ci.yml`. Two parallel jobs on pushes to `master`/`ruby-3.1` and on every pull request: `test` (`bundle exec rspec`, JUnit output uploaded as an artifact) and `lint` (`bundle exec rubocop`). They report separate status checks so a spec failure and a lint failure are distinguishable at a glance.
 
 ## Project Overrides
 Rules here override global CLAUDE.md rules for this project.
