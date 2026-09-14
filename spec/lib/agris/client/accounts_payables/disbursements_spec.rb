@@ -67,7 +67,8 @@ describe Agris::Client do
 
     it 'targets the Agris ProcessMessage id 82320' do
       # Arrange
-      request_class, request_instance = build_request_class(build_response_double)
+      request_class, request_instance =
+        build_request_class(build_response_double)
       client = build_client(request_class, build_context)
       disbursement = build_disbursement
 
@@ -81,7 +82,8 @@ describe Agris::Client do
 
     it 'sends a SOAP context payload built from the configured Context' do
       # Arrange
-      request_class, request_instance = build_request_class(build_response_double)
+      request_class, request_instance =
+        build_request_class(build_response_double)
       client = build_client(request_class, build_context)
       disbursement = build_disbursement
 
@@ -99,7 +101,8 @@ describe Agris::Client do
 
     it 'wraps the disbursement payload as a single-record details list' do
       # Arrange
-      request_class, request_instance = build_request_class(build_response_double)
+      request_class, request_instance =
+        build_request_class(build_response_double)
       client = build_client(request_class, build_context)
       disbursement = build_disbursement
 
@@ -120,7 +123,8 @@ describe Agris::Client do
 
     it 'returns an Agris::Api::PostResult wrapping the SOAP response' do
       # Arrange
-      request_class, _request_instance = build_request_class(build_response_double)
+      request_class, _request_instance =
+        build_request_class(build_response_double)
       client = build_client(request_class, build_context)
       disbursement = build_disbursement
 

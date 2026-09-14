@@ -362,3 +362,15 @@ Style/StringLiterals:
   SupportedStyles:
   - single_quotes
   - double_quotes
+Gemspec/RequiredRubyVersion:
+  Description: >-
+    Disabled: rubocop 0.54's TargetRubyVersion tops out at 2.5, so it can
+    never equal the gemspec's required_ruby_version of 3.1. Re-enable when
+    rubocop is modernised.
+  Enabled: false
+Layout/BlockAlignment:
+  Description: >-
+    Disabled: crashes on Ruby 3.x under rubocop 0.54 (raises while
+    inspecting RSpec.configure blocks). Re-enable when rubocop is
+    modernised.
+  Enabled: false
