@@ -10,7 +10,7 @@
   - Does not host or proxy Agris itself; callers supply their own endpoint, dataset, and credentials.
 
 ## Stack and Dependencies
-- **Languages/frameworks:** Ruby (target `2.4`, per `.rubocop.yml`; CI image `circleci/ruby:2.4.1`).
+- **Languages/frameworks:** Ruby 3.1 (`.ruby-version`; CI image `cimg/ruby:3.1`). Rubocop still lints against `TargetRubyVersion: 2.4`.
 - **Key applications/packages:**
   - Runtime: `savon ~> 2.11` (SOAP client).
   - Dev/test: `rspec ~> 3.0`, `rspec_junit_formatter ~> 0.4.1`, `webmock ~> 2.3`, `simplecov 0.17`, `rubocop 0.54.0`, `pry-byebug`, `rake ~> 12.3.3`, `bundler ~> 2.3.7`.
@@ -44,7 +44,7 @@ Define key business terms unique to this project so agents use correct terminolo
 | Messages module | `Api::Messages::*` — document-tracking and "changed since" queries (invoices, sales contracts, delivery tickets, orders, commodity-code documents). |
 
 ## Local Development Setup
-- **Prerequisites:** Ruby 2.4.x and Bundler 2.3.x. CI pins `circleci/ruby:2.4.1`; newer Ruby versions may work but are unverified.
+- **Prerequisites:** Ruby 3.1.x and Bundler 2.3+. CI pins `cimg/ruby:3.1`; other Ruby versions may work but are unverified.
 - **Install steps:**
   1. `git clone git@github.com:westernmilling/agris.rb.git`
   2. `cd agris.rb`
