@@ -17,7 +17,7 @@ module Agris
           )
         end
 
-        def sales_contracts_changed_since(datetime, detail = false)
+        def sales_contracts_changed_since(datetime, detail: false)
           extract_documents(
             Messages::QueryChangedSalesContracts.new(datetime, detail),
             Agris::Api::Grain::Contract

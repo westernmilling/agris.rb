@@ -12,9 +12,3 @@
 # SupportedStyles: single_quotes, double_quotes
 Style/StringLiterals:
   Enabled: false
-
-# rubocop 0.54 validates this file standalone, and without an explicit
-# TargetRubyVersion it falls back to .ruby-version — whose 3.x value it
-# rejects (KNOWN_RUBIES stops at 2.5). Mirror .rubocop.yml to keep it quiet.
-AllCops:
-  TargetRubyVersion: 2.4

@@ -48,7 +48,7 @@ describe Agris::Client, :agris_api_mock do
 
       let!(:client) do
         options = {
-          logger: Logger.new(STDOUT),
+          logger: Logger.new($stdout),
           request_type: Agris::SavonRequest
         }
         Agris::Client.new(

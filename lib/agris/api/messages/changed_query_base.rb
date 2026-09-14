@@ -4,6 +4,7 @@ module Agris
     module Messages
       class ChangedQueryBase < QueryBase
         def initialize(time, detail)
+          super()
           @time = time
           @detail = detail
         end

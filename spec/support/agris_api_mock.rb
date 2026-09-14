@@ -22,7 +22,7 @@ RSpec.configure do |config|
     )
     stub_request(
       :get,
-      %r(agris\/AGRIS.Env.MessageRouter\/AGRIS.Env.MessageRouter.asmx\?WSDL)
+      %r(agris/AGRIS.Env.MessageRouter/AGRIS.Env.MessageRouter.asmx\?WSDL)
     ).to_return(status: 200, body: wsdl)
   end
 end

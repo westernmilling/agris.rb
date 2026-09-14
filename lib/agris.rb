@@ -18,6 +18,7 @@ module Agris
                   :proxy_url,
                   :request_type,
                   :user_agent
+
     # ```ruby
     # Agris.configure do |config|
     #   config.credentials = Agris::Credentials::Anonymous.new

@@ -17,7 +17,7 @@ module Agris
           )
         end
 
-        def invoices_changed_since(datetime, detail = false)
+        def invoices_changed_since(datetime, detail: false)
           extract_documents(
             Messages::QueryChangedInvoices.new(datetime, detail),
             Agris::Api::AccountsReceivables::Invoice

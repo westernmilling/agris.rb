@@ -43,7 +43,7 @@ module Agris
 
     def logger
       # We may want to replace the Logger with some kind of NullLogger?
-      @logger ||= Logger.new(STDOUT)
+      @logger ||= Logger.new($stdout)
     end
   end
 end

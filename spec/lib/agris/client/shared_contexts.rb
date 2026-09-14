@@ -2,7 +2,7 @@
 shared_context 'test agris client' do
   let(:client) do
     options = {
-      logger: Logger.new(STDOUT),
+      logger: Logger.new($stdout),
       request_type: Agris::SavonRequest
     }
     Agris::Client.new(

@@ -34,6 +34,7 @@ class Hash
         if child.name == 'text'
           unless child.next_sibling || child.previous_sibling
             return result unless attributes
+
             result_hash[key_value(child)] = result
           end
         elsif result_hash[key_value(child)]

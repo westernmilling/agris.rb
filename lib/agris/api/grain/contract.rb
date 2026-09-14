@@ -104,11 +104,11 @@ module Agris
         def self.add_transcodes_to_schedule(schedule)
           if schedule['trancodes']
             trancodes = schedule['trancodes']['trancode']
-            trancodes = [trancodes] unless trancodes.class == Array
+            trancodes = [trancodes] unless trancodes.instance_of?(Array)
             trancodes.each do |trancode|
-              label_code = trancode['label'].downcase + 'code'
+              label_code = "#{trancode['label'].downcase}code"
               schedule[label_code] = trancode['code']
-              label_description = trancode['label'].downcase + 'description'
+              label_description = "#{trancode['label'].downcase}description"
               schedule[label_description] = trancode['description']
             end
           end
