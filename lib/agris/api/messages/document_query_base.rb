@@ -4,6 +4,7 @@ module Agris
     module Messages
       class DocumentQueryBase < QueryBase
         def initialize(document_references)
+          super()
           @document_references = document_references
         end
 

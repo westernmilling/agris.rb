@@ -50,14 +50,16 @@ describe Agris::Client, :agris_api_mock do
     end
     let(:line_items) do
       [
-        created_by: '101',
-        created_date: '2017-05-09T14:39:54.227Z',
-        last_updated_by: '101',
-        last_updated_date: '2019-01-19T19:56:07.093Z',
-        location_code: invoice_location,
-        line_item_no: '01',
-        unit_price: 0.0,
-        total_price: 0.0
+        {
+          created_by: '101',
+          created_date: '2017-05-09T14:39:54.227Z',
+          last_updated_by: '101',
+          last_updated_date: '2019-01-19T19:56:07.093Z',
+          location_code: invoice_location,
+          line_item_no: '01',
+          unit_price: 0.0,
+          total_price: 0.0
+        }
       ]
     end
 

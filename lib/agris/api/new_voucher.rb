@@ -5,8 +5,6 @@ module Agris
     class NewVoucher
       include XmlModel
 
-      attr_reader :details
-
       ATTRIBUTE_NAMES = %w(
         agent_id
         currency_code
@@ -44,7 +42,7 @@ module Agris
         voucher_type
       ).freeze
 
-      attr_reader(*ATTRIBUTE_NAMES)
+      attr_reader :details, *ATTRIBUTE_NAMES
 
       def initialize(hash = {})
         super

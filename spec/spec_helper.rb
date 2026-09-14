@@ -16,4 +16,4 @@ RSpec.configure do |config|
   end
 end
 
-Dir[Agris.root + '/spec/support/**/*.rb'].each { |f| require f }
+Dir["#{Agris.root}/spec/support/**/*.rb"].each { |f| require f }

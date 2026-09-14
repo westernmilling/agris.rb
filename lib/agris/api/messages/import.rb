@@ -4,6 +4,7 @@ module Agris
     module Messages
       class Import < MessageBase
         def initialize(model)
+          super()
           @model = model
         end
 
