@@ -9,7 +9,8 @@ module Agris
       end
 
       def last_request_date_time
-        Time.parse(@output_hash[pluralized_resource_name]['system']['lastrequestdatetime'])
+        system_hash = @output_hash[pluralized_resource_name]['system']
+        Time.parse(system_hash['lastrequestdatetime'])
       end
 
       def documents
@@ -37,7 +38,10 @@ module Agris
       end
 
       def resource_type
-        @resource_type ||= Object.const_get(self.class.name.split('::').last.chomp('ExtractResponse'))
+        @resource_type ||= begin
+          name = self.class.name.split('::').last.chomp('ExtractResponse')
+          Object.const_get(name)
+        end
       end
 
       def resources

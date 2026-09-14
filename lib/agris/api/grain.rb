@@ -16,8 +16,10 @@ module Agris
       autoload :NewTicketRemark, 'agris/api/grain/new_ticket_remark'
       autoload :Rates, 'agris/api/grain/rates'
       autoload :SalesContracts, 'agris/api/grain/sales_contracts'
-      autoload :SpecificCommodityCodeExtract, 'agris/api/grain/specific_commodity_code_extract'
-      autoload :SpecificContractExtract, 'agris/api/grain/specific_contract_extract'
+      autoload :SpecificCommodityCodeExtract,
+               'agris/api/grain/specific_commodity_code_extract'
+      autoload :SpecificContractExtract,
+               'agris/api/grain/specific_contract_extract'
       autoload :Tickets, 'agris/api/grain/tickets'
     end
   end
