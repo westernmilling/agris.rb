@@ -12,10 +12,10 @@ describe Agris::Api::Grain::NewTicket do
       )
 
       expect(ticket.to_xml_hash).to include(
-        :'@freightstatus' => 'E',
-        :'@freightrate' => 1596,
-        :'@freightuom' => 'TONS',
-        :'@freightweight' => 3_023_664
+        '@freightstatus': 'E',
+        '@freightrate': 1596,
+        '@freightuom': 'TONS',
+        '@freightweight': 3_023_664
       )
     end
 
