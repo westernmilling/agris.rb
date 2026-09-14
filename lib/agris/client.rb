@@ -4,6 +4,7 @@ module Agris
     include Api::AccountsPayables::Disbursements
     include Api::AccountsPayables::Vouchers
     include Api::AccountsReceivables::Invoices
+    include Api::AccountsReceivables::Payments
     include Api::Grain::CommodityCodes
     include Api::Grain::GrainModule
     include Api::Grain::PurchaseContracts
