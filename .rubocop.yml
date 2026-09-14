@@ -362,3 +362,9 @@ Style/StringLiterals:
   SupportedStyles:
   - single_quotes
   - double_quotes
+Layout/BlockAlignment:
+  Description: >-
+    Disabled: crashes on Ruby 3.x under rubocop 0.54 (raises while
+    inspecting RSpec.configure blocks). Re-enable when rubocop is
+    modernised.
+  Enabled: false

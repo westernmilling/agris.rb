@@ -29,7 +29,7 @@ describe Agris::Api::AccountsPayables::NewDisbursement do
   describe '#initialize' do
     it 'defaults record_type to ACPD0' do
       # Arrange
-      # (no setup — exercising the default path)
+      # (no setup - exercising the default path)
 
       # Act
       instance = described_class.new
@@ -67,7 +67,7 @@ describe Agris::Api::AccountsPayables::NewDisbursement do
   describe '#to_xml_hash' do
     it 'serializes record_type as :@recordtype with the ACPD0 default' do
       # Arrange
-      # (no setup — exercising the default path)
+      # (no setup - exercising the default path)
 
       # Act
       hash = described_class.new.to_xml_hash
