@@ -107,8 +107,6 @@ module Agris
         end
       end
 
-      # ACPV3 - references the grain ticket whose freight this voucher pays.
-      # See docs/specs/accounts-payables/freight-ticket-reference.md (R1-R4).
       class FreightTicketReferenceDetail
         include XmlModel
 

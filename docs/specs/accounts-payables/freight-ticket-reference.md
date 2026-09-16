@@ -138,6 +138,8 @@ Given a `FreightTicketReferenceDetail` built with or without a `record_type`
 When `record_type` and `to_xml_hash[:@recordtype]` are read
 Then both are `'ACPV3'`.
 Covers: R2, E1
+Examples: `FreightTicketReferenceDetail` `#initialize` and `#to_xml_hash`, contexts
+"without any attributes" and "when record_type is passed in the hash".
 
 AT2
 Given a `FreightTicketReferenceDetail` built with all four ticket attributes
@@ -145,12 +147,16 @@ When `to_xml_hash` is called
 Then the keys are exactly `:@inoutcode`, `:@ticketlocation`, `:@ticketnumber`,
 `:@freightamount`, `:@recordtype` and each value matches the input.
 Covers: R1, R3
+Examples: `FreightTicketReferenceDetail` `::ATTRIBUTE_NAMES` and `#to_xml_hash`
+"with all four ticket attributes".
 
 AT3
 Given a `FreightTicketReferenceDetail` built with all four ticket attributes
 When each reader is called
 Then it returns the value supplied.
 Covers: R4
+Examples: `FreightTicketReferenceDetail` `#initialize` "with all four ticket
+attributes".
 
 AT4
 Given a `NewVoucher` with one `GeneralLedgerDetail` and one
@@ -159,6 +165,8 @@ When `details` is mapped through `to_xml_hash`
 Then two hashes result, in insertion order, with record types `ACPV2` then
 `ACPV3`.
 Covers: R5
+Examples: `NewVoucher` `#add_detail` "with a general ledger detail and a
+freight ticket reference".
 
 AT5
 Given a `FreightTicketReferenceDetail` built with only `ticket_number`
@@ -166,6 +174,8 @@ When readers and `to_xml_hash` are inspected
 Then the omitted readers return `nil` and `to_xml_hash` contains only
 `:@ticketnumber` and `:@recordtype`.
 Covers: E2
+Examples: `FreightTicketReferenceDetail` `#initialize` and `#to_xml_hash` "with
+only ticket_number".
 
 ## Observability
 None. The gem is a library; consumers log `PostResult` outcomes.
@@ -176,6 +186,7 @@ None. The gem is a library; consumers log `PostResult` outcomes.
 |------|----------|-----------|
 | 2026-09-16 | Expose readers via `attr_reader(*ATTRIBUTE_NAMES)`, unlike the two older detail classes. | Matches `NewVoucher` and `NewDisbursement`; consumers need to inspect the detail for logging and tests. Older classes left untouched (non-goal). |
 | 2026-09-16 | Do not validate G1-G6 in the gem. | AGRIS is the system of record for these rules and already reports violations in-band; duplicating them would drift. |
+| 2026-09-16 | No spec IDs or spec paths in code or test comments. | Coding Style Rules §2.4: code is the source of truth and ticket/requirement references in comments rot. Traceability lives in commit footers, the PR description and this spec's AT list; each AT lists the RSpec examples that prove it. |
 
 ## Change Log
 

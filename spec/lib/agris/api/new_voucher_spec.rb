@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-# Spec: docs/specs/accounts-payables/freight-ticket-reference.md
 describe Agris::Api::NewVoucher do
   def build_general_ledger_detail
     described_class::GeneralLedgerDetail.new(
@@ -22,7 +21,6 @@ describe Agris::Api::NewVoucher do
 
   describe '#add_detail' do
     context 'with a general ledger detail and a freight ticket reference' do
-      # AT4 (R5)
       it 'exposes both details in insertion order' do
         # Arrange
         voucher = described_class.new(voucher_amount: '230.85')
@@ -37,7 +35,6 @@ describe Agris::Api::NewVoucher do
         expect(voucher.details).to eq([gl_detail, ticket_detail])
       end
 
-      # AT4 (R5)
       it 'serializes each detail to its own record type' do
         # Arrange
         voucher = described_class.new(voucher_amount: '230.85')
@@ -56,7 +53,6 @@ describe Agris::Api::NewVoucher do
         )
       end
 
-      # AT4 (R5) - the header hash must not swallow the details
       it 'keeps details out of the header xml hash' do
         # Arrange
         voucher = described_class.new(voucher_amount: '230.85')
