@@ -16,8 +16,7 @@ takes none.
 
 - `Api::NewVoucher::FreightTicketReferenceDetail`, the `ACPV3` voucher detail
   that references the grain ticket whose freight an FV voucher pays. AGRIS
-  stamps the ticket with the voucher number on import. Spec:
-  `docs/specs/accounts-payables/freight-ticket-reference.md`. (#58)
+  stamps the ticket with the voucher number on import. (#58)
 
 ## [1.0.0] - 2026-09-14
 
