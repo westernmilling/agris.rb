@@ -106,6 +106,28 @@ module Agris
           @record_type = 'ACPV1'
         end
       end
+
+      # ACPV3 - references the grain ticket whose freight this voucher pays.
+      # See docs/specs/accounts-payables/freight-ticket-reference.md (R1-R4).
+      class FreightTicketReferenceDetail
+        include XmlModel
+
+        ATTRIBUTE_NAMES = %w(
+          in_out_code
+          ticket_location
+          ticket_number
+          freight_amount
+          record_type
+        ).freeze
+
+        attr_reader(*ATTRIBUTE_NAMES)
+
+        def initialize(hash = {})
+          super
+
+          @record_type = 'ACPV3'
+        end
+      end
     end
   end
 end
