@@ -2,15 +2,6 @@
 require 'spec_helper'
 
 describe Agris::Api::NewVoucher::FreightTicketReferenceDetail do
-  def build_acpv3_attributes
-    {
-      in_out_code: 'I',
-      ticket_location: '051',
-      ticket_number: '0028786',
-      freight_amount: '230.85'
-    }
-  end
-
   describe '::ATTRIBUTE_NAMES' do
     it 'lists the four ticket attributes plus record_type' do
       expect(described_class::ATTRIBUTE_NAMES).to contain_exactly(
@@ -36,11 +27,8 @@ describe Agris::Api::NewVoucher::FreightTicketReferenceDetail do
 
     context 'when record_type is passed in the hash' do
       it 'overrides it with ACPV3' do
-        # Arrange
-        attributes = { record_type: 'OTHER' }
-
         # Act
-        instance = described_class.new(attributes)
+        instance = build(:freight_ticket_reference_detail, record_type: 'OTHER')
 
         # Assert
         expect(instance.record_type).to eq('ACPV3')
@@ -49,11 +37,8 @@ describe Agris::Api::NewVoucher::FreightTicketReferenceDetail do
 
     context 'with all four ticket attributes' do
       it 'exposes a reader for each ticket attribute' do
-        # Arrange
-        attributes = build_acpv3_attributes
-
         # Act
-        instance = described_class.new(attributes)
+        instance = build(:freight_ticket_reference_detail)
 
         # Assert
         expect(instance).to have_attributes(
@@ -67,11 +52,8 @@ describe Agris::Api::NewVoucher::FreightTicketReferenceDetail do
 
     context 'with only ticket_number' do
       it 'returns nil from the readers for the omitted attributes' do
-        # Arrange
-        attributes = { ticket_number: '0028786' }
-
         # Act
-        instance = described_class.new(attributes)
+        instance = described_class.new(ticket_number: '0028786')
 
         # Assert
         expect(instance).to have_attributes(
@@ -98,10 +80,10 @@ describe Agris::Api::NewVoucher::FreightTicketReferenceDetail do
     context 'when record_type is passed in the hash' do
       it 'serializes ACPV3 regardless' do
         # Arrange
-        attributes = { record_type: 'OTHER', ticket_number: '0028786' }
+        instance = described_class.new(record_type: 'OTHER', ticket_number: '0028786')
 
         # Act
-        hash = described_class.new(attributes).to_xml_hash
+        hash = instance.to_xml_hash
 
         # Assert
         expect(hash).to eq(:@recordtype => 'ACPV3', :@ticketnumber => '0028786')
@@ -111,10 +93,10 @@ describe Agris::Api::NewVoucher::FreightTicketReferenceDetail do
     context 'with all four ticket attributes' do
       it 'serializes the ACPV3 record with underscore-stripped @-keys' do
         # Arrange
-        attributes = build_acpv3_attributes
+        instance = build(:freight_ticket_reference_detail)
 
         # Act
-        hash = described_class.new(attributes).to_xml_hash
+        hash = instance.to_xml_hash
 
         # Assert
         expect(hash).to eq(
@@ -130,10 +112,10 @@ describe Agris::Api::NewVoucher::FreightTicketReferenceDetail do
     context 'with only ticket_number' do
       it 'omits keys for the attributes that were not supplied' do
         # Arrange
-        attributes = { ticket_number: '0028786' }
+        instance = described_class.new(ticket_number: '0028786')
 
         # Act
-        hash = described_class.new(attributes).to_xml_hash
+        hash = instance.to_xml_hash
 
         # Assert
         expect(hash.keys).to contain_exactly(:@ticketnumber, :@recordtype)
