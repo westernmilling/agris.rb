@@ -2,13 +2,12 @@
 require 'spec_helper'
 
 describe Agris::Client do
-  include StubbedAgrisClient
-
   describe '#create_voucher' do
     context 'with a general ledger detail and a freight ticket reference' do
       it 'posts the header and both details as sibling records' do
         # Arrange
-        client, request = stubbed_agris_client(processed_response('051032228'))
+        response = StubbedAgrisClient.processed_response('051032228')
+        client, request = StubbedAgrisClient.stubbed_agris_client(response)
         payload_xml = nil
 
         # Act
@@ -25,7 +24,8 @@ describe Agris::Client do
 
       it 'carries the ticket reference attributes on the ACPV3 record' do
         # Arrange
-        client, request = stubbed_agris_client(processed_response('051032228'))
+        response = StubbedAgrisClient.processed_response('051032228')
+        client, request = StubbedAgrisClient.stubbed_agris_client(response)
         payload_xml = nil
 
         # Act
@@ -44,7 +44,8 @@ describe Agris::Client do
 
       it 'returns a processed PostResult with the voucher document number' do
         # Arrange
-        client, _request = stubbed_agris_client(processed_response('051032228'))
+        response = StubbedAgrisClient.processed_response('051032228')
+        client, _request = StubbedAgrisClient.stubbed_agris_client(response)
 
         # Act
         result = client.create_voucher(build(:new_voucher, :freight))
