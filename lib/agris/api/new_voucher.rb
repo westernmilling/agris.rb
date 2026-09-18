@@ -106,6 +106,26 @@ module Agris
           @record_type = 'ACPV1'
         end
       end
+
+      class FreightTicketReferenceDetail
+        include XmlModel
+
+        ATTRIBUTE_NAMES = %w(
+          in_out_code
+          ticket_location
+          ticket_number
+          freight_amount
+          record_type
+        ).freeze
+
+        attr_reader(*ATTRIBUTE_NAMES)
+
+        def initialize(hash = {})
+          super
+
+          @record_type = 'ACPV3'
+        end
+      end
     end
   end
 end
