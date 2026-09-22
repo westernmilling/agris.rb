@@ -10,6 +10,14 @@ version number — see [docs/RELEASING.md](docs/RELEASING.md). Raising that floo
 is a breaking change and takes a major bump; adding support for a newer Ruby
 takes none.
 
+## [Unreleased]
+
+### Added
+
+- `Api::NewVoucher::FreightTicketReferenceDetail`, the `ACPV3` voucher detail
+  that references the grain ticket whose freight an FV voucher pays. AGRIS
+  stamps the ticket with the voucher number on import. (#58)
+
 ## [1.0.0] - 2026-09-14
 
 First release since `v0.19.0`. The `1.0.0` bump declares the public API stable
@@ -76,4 +84,5 @@ Releases up to and including `v0.19.0` predate this changelog. See the
 [commit history](https://github.com/westernmilling/agris.rb/commits/master)
 and [release tags](https://github.com/westernmilling/agris.rb/tags).
 
+[Unreleased]: https://github.com/westernmilling/agris.rb/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/westernmilling/agris.rb/compare/v0.19.0...v1.0.0
