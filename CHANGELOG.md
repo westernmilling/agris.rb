@@ -12,6 +12,8 @@ takes none.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-09-23
+
 ### Added
 
 - `prepayment_type` and `prepayment_reference` on
@@ -93,6 +95,7 @@ Releases up to and including `v0.19.0` predate this changelog. See the
 [commit history](https://github.com/westernmilling/agris.rb/commits/master)
 and [release tags](https://github.com/westernmilling/agris.rb/tags).
 
-[Unreleased]: https://github.com/westernmilling/agris.rb/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/westernmilling/agris.rb/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/westernmilling/agris.rb/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/westernmilling/agris.rb/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/westernmilling/agris.rb/compare/v0.19.0...v1.0.0
