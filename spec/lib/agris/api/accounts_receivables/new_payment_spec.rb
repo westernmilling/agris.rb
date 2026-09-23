@@ -64,6 +64,23 @@ describe Agris::Api::AccountsReceivables::NewPayment do
       expect(payment.apply_receive_on_acct).to eq('0')
     end
 
+    it 'carries the prepayment type and reference' do
+      # Arrange
+      attributes = receipt_attributes.merge(
+        cash_source: 'P',
+        prepayment_reference: '',
+        prepayment_type: '5'
+      )
+
+      # Act
+      payment = described_class.receive(attributes)
+
+      # Assert
+      expect(payment.cash_source).to eq('P')
+      expect(payment.prepayment_type).to eq('5')
+      expect(payment.prepayment_reference).to eq('')
+    end
+
     it 'blanks the applied date and the invoice' do
       # Arrange
       attributes = receipt_attributes.merge(
@@ -127,6 +144,31 @@ describe Agris::Api::AccountsReceivables::NewPayment do
         :@paymentdate => '260827',
         :@receiptlocation => '100',
         :@receiptnumber => 'R17950',
+        :@recordtype => 'ACRR0'
+      )
+    end
+
+    it 'omits the prepayment fields from a payment that sets neither' do
+      # Arrange
+      attributes = receipt_attributes
+
+      # Act
+      hash = described_class.receive(attributes).to_xml_hash
+
+      # Assert
+      expect(hash).to eq(
+        :@applieddate => '',
+        :@applyreceiveonacct => '0',
+        :@bankcode => '03',
+        :@cashsource => 'R',
+        :@checknumber => '000123456',
+        :@discountamount => '0.00',
+        :@invoicelinepricingno => '',
+        :@invoicelocation => '100',
+        :@nameid => '1000676-01',
+        :@paymentamount => '150.00',
+        :@paymentdate => '260827',
+        :@receiptlocation => '100',
         :@recordtype => 'ACRR0'
       )
     end

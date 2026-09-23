@@ -138,6 +138,27 @@ describe Agris::Client do
       expect(result).not_to be_allocated
     end
 
+    it 'posts a generic prepayment receipt' do
+      # Arrange
+      client, request_instance = build_client(build_processed_response)
+      payment = Agris::Api::AccountsReceivables::NewPayment.receive(
+        receive_attributes.merge(
+          cash_source: 'P',
+          prepayment_type: '5',
+          prepayment_reference: ''
+        )
+      )
+
+      # Act
+      client.create_payment(payment)
+
+      # Assert
+      payload = captured_payload(request_instance)
+      expect(payload).to include('cashsource="P"')
+      expect(payload).to include('prepaymenttype="5"')
+      expect(payload).to include('prepaymentreference=""')
+    end
+
     it 'posts an attached remark alongside the receipt' do
       # Arrange
       client, request_instance = build_client(build_processed_response)
