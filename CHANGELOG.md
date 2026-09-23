@@ -12,6 +12,13 @@ takes none.
 
 ## [Unreleased]
 
+### Added
+
+- `prepayment_type` and `prepayment_reference` on
+  `Api::AccountsReceivables::NewPayment`, the `ACRR0` fields that make a
+  prepayment receipt expressible alongside a `P` cash source. A payment
+  setting neither serializes exactly as before.
+
 ## [1.1.0] - 2026-09-22
 
 ### Added
