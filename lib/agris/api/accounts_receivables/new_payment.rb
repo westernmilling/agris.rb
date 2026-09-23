@@ -21,6 +21,8 @@ module Agris
           name_id
           payment_amount
           payment_date
+          prepayment_reference
+          prepayment_type
           receipt_location
           receipt_number
           record_type
